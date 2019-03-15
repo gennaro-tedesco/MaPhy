@@ -1,0 +1,241 @@
+%************************************************
+\chapter{Introduction to quantum field theory}\label{ch:QFT}
+\minitoc\mtcskip
+%************************************************
+
+\noindent A rigorous inspection of the behaviour of quantum field theory
+showed some common general features which were seen to be 
+always realised, no matter the physical system at hand.
+Such features have been thus taken as defining properties 
+(axioms) of the quantum field theory itself and the study of their 
+mathematical properties leads to the characterisation 
+of algebraic quantum field theory. We shall introduce such
+postulates following the example given by the standard
+textbook in this area, namely \cite*{Haag}.
+
+\bigskip
+The main objects any physical theory deals with, no matter
+whether classical or quantised, are fields $x\mapsto\phi(x)$
+(whose mathematical properties have to fulfill the requirements 
+of the model at hand).
+Their role is to implement the principle of locality; 
+\emph{observables} are the quantities that can be directly
+reproduced in a laboratory and they can in general be
+read off and reconstructed once the field content is assigned.
+Fields themselves may also be observables, though they need not to.
+
+%*******************************************************
+\section{General postulates: Wightman axioms}
+\label{Wightman}
+ \begin{enumerate}[label=\Alph*.]
+  \item \emph{Fields}:        
+        Fields are operator valued distributions on Minkowski space.
+        This means that the linear assignment $f\mapsto\phi(f)$ gives
+        back an (usually unbounded) operator on some Hilbert space 
+        $\hil$ with dense domain $\mathfrak{D}(\phi(f))\subseteq\hil$. 
+        The assignment has to be thought as a smearing
+        \[
+        \phi(f)=\int_{\vN} \dd^4x\,\phi(x)f(x)
+        \]
+        with $f$ belonging to some suitable functional space $\mathcal{F}$.
+        The further assumption $\phi(f)\mathfrak{D}\subset\mathfrak{D}$
+        ensures that we may operate arbitrarily many times with fields
+        upon vectors $\in\mathfrak{D}$.
+  \item \emph{Poincar\'{e} group and transformation properties}: 
+        The Hilbert space $\hil$ carries
+        a unitary representation $U(g)$ of the covering of the 
+        Poincar\'{e} group $\poin$. The spectrum of the energy-momentum
+        operators $P^{\mu}$ is contained in the forward light cone
+        and this ensures consistency with special relativity,
+        $p^2\coloneqq m^2\geq 0, p^0\geq 0$. Moreover, let $\loren\subset\poin = 
+        \R^4 \rtimes \loren$ be the Lorentz subgroup of the Poincar\'{e}
+        group and let $U(\Lambda,a)$ be a representation of $\poin$
+        with $\Lambda\in\loren,\,a\in\R^4$. Fields transform under $\poin$~as
+        \[
+        U(\Lambda,a)\,(\phi(x))\,U^*(\Lambda,a)= S(\Lambda^{-1})\,
+        \phi(\Lambda x+a),\quad S(\Lambda^{-1})\in\,\loren.
+        \]
+        In a nutshell the choice of $S(\Lambda)$ characterises the
+        ``spin'' of the field.
+  \item \emph{Hermiticity}: Given a field $\phi(f)$, the theory
+	contains also the hermitian conjugate field $\phi(f)^*$ 
+	defined so that 
+	\[
+	\scal{\Phi,\phi(f)\Psi}=\scal{\phi^{\dagger}(\overline{f})\Phi,\Psi}.
+	\]
+	Fields may be self-adjoint, $\phi(x)=\phi^{\dagger}(x)$ and
+	thus $\scal{\Phi,\phi(f)\Psi}=\scal{\phi(\overline{f})\Phi,\Psi}$
+	given $\Phi,\Psi$.
+  \item \emph{Locality}: If the supports of the test functions $f$ and
+	$g$ are space-like to each other, then fields must satisfy either
+	of the following commutation relations
+	\[
+	\comm{\phi(f),\phi(g)}\Psi=0\quad\text{or}\quad
+	\ant{\phi(f),\phi(g)}\Psi=0,\quad\Psi\in\mathfrak{D}. 
+	\]
+        Fields of the former type are called ``bosonic'', whereas
+        fields of the latter type are called ``fermionic''. Due
+        to Einstein causality observables must commute at space-like
+        distances, therefore fermionic fields by themselves cannot be
+        observables, whilst bosonic fields may.  
+  \item \emph{Vacuum state and completeness}: There exists a unique state 
+        $\Omega\in\hil$ invariant under 
+        $U(g),\,g\in\poin$. Such a state is referred to as the 
+        ``vacuum state''. Also, by acting upon the vacuum with an 
+        arbitrary polynomial in the fields $\phi(f)$ one can approximate 
+        any operator acting on $\hil$.        
+ \end{enumerate}
+It turns out that these properties are easily realised by free fields
+satisfying linear equations, while constructions in terms of 
+interacting fields are very difficult to achieve.
+
+ \begin{definition}
+ Let $\Omega$ be the vacuum vector. The vacuum expectation values
+ \[
+ w^{(n)}(x_1,\ldots,x_n)\coloneqq
+ \scal{\Omega,\phi(x_1)\ldots\phi(x_n)\Omega}
+ \]
+ are called (Wightman) $n$-points correlation functions, though
+ they are, more precisely, tempered distributions on $\R^{4n}$.
+ \end{definition}
+A fundamental result in this respect is the ``reconstruction theorem''
+\cite*{Haag}, namely, under some suitable assumptions that we do not 
+discuss in here, the whole fields content can be derived out of the 
+knowledge of all correlation functions. 
+
+\section{Fermi fields versus Bose fields}
+\label{Fermi vs Bose}
+As previously stated, fields appearing in nature must satisfy particular
+restrictions on the way they commute between each other, this being
+express by either commutation or anti-commutation relations. 
+Fields of the former kind are referred to as ``Bose fields''
+whereas fields of the latter kind are usually referred to as 
+``Fermi fields''. In particular, those fields that belong 
+to integer ``spin representations'' of the Lorentz group 
+(in the sense of $S(\Lambda)$, as we have seen 
+before) are Bose fields, while those ones that belong to
+half-odd integer representations are Fermi fields. Such
+particular feature characterises the spin-statistic
+theorem (\cite{Haag}). As a first remark notice
+that Bose fields might in principle be already observables, 
+because they automatically fulfill Einstein causality; 
+on the other hand Fermi fields do not, and observables 
+must be constructed as particular combinations
+of them (currents and stress-energy tensor, as we will 
+show later on). However, we shall show the explicit 
+construction of operator algebras based on the above 
+commutation relations in the very special case when 
+the space-time is one-dimensional, where this has
+to be understood as previously mentioned, namely 
+as decomposition in terms of light-ray variables.
+
+\bigskip
+Let us construct fermionic fields first. Take $\hil$ as 
+any Hilbert space of functions with an involution 
+$\Gamma\mid(\Gamma f)(x)=\conj{f(x)}$. Through the 
+following linear assignment $f\mapsto\psi(f)$, which 
+can be thought as an integral smearing, we can construct 
+the set
+\[
+\textrm{CAR}(\hil,\Gamma)\coloneqq
+\conj{\set{\psi(f)\mid f\in \mathcal{\hil},\ 
+(\Gamma f)(x)=\conj{f(x)}}}_{\norm{\blank}}\,.
+\]
+The norm of an operator in such a set is uniquely fixed by the relation
+$\psi(f)^*=\psi(\Gamma f)$ and by the anti-commutation relations
+\begin{equation}
+\label{CAR}
+\ant{\psi(f)^*,\psi(g)}=\scal{\Gamma f,g}_{\hil}\,\bm{1};\quad
+f,g\in\hil
+\end{equation}
+According to the choice of the Hilbert space one can realise either
+real fields or complex fields. The standard choice is to take
+$\hil = \LL{\R,\dd x}$ to have real fields and two such copies
+$\LL{\R}\oplus\LL{\R} = \LL{\R}\otimes\C$ to have complex fields.
+The norm is then seen to satisfy the inequality $\norm{\psi(f)}
+\leq \norm{f}_{\hil}$ and therefore the operators are
+bounded by the norm of the functions in $\hil$. By choosing
+a projection $P\mid \Gamma P\Gamma=\bm{1}-P$ one can decompose
+fields into creation and annihilation modes
+$\psi(f)=\psi\left(Pf + \Gamma P\Gamma f\right)=
+\psi(Pf)+\psi(\Gamma P\Gamma f)=\psi^+(f)+\psi^-(f)$
+and also define two-point function as
+\[
+\omega_{P}\left(\psi(f)\psi(g)\right)\coloneqq
+\scal{\Gamma f, P g}_{\hil}.
+\]
+Positivity is ensured by positivity in the Hilbert space
+and higher order correlation functions can be defined 
+\cite{Boeck:1996} as
+\begin{multline}
+\label{wick}
+\omega_P\left(\psi(f_1)\ldots\psi(f_{2n})\right)\coloneqq\\
+{(-1)}^{1/2\,n(n-1)}\sum_{\sigma\in \textrm{P}_n}\textrm{sign}\,
+\sigma\,\prod^n_{j=1}\omega_P
+\left(\psi(f_{\sigma(j)})\psi(f_{\sigma(n+j)})\right)
+\end{multline}
+with all the odd correlation functions vanishing. Such a state is
+usually called quasi-free. The corresponding irreducible GNS 
+representation gives the state in terms of scalar product as
+expressed in the previous paragraph.
+\begin{example}[Real Fermi field]
+The real Fermi field on the real line
+can be decomposed into Fourier modes as
+\[
+\psi(x)=\frac{1}{\sqrt{2\pi}}\int_{\R}\dd k\,a(k)\e^{-ikx}
+\]
+with the reality condition $a^*(k)=a(-k)$ and anti-commutation
+relations $\ant{a(k),a(k')^*}=\delta(k-k')$. 
+At the level of distributions, commutation relations for the 
+fields themselves are 
+\[
+\ant{\psi(x),\psi(y)}=\delta(x-y),\quad x,y\,\in\R.
+\]
+Taking into account
+that $a(k)$ annihilates the vacuum for each $k$, the one point
+function is easily seen to vanish, $\vac(\psi(x))=0$, whereas  
+the vacuum two-point function is 
+\[
+\vac(\psi(x)\psi(y))=\int_{\R} \dd k \e^{-ikx} \int_{\R}\dd k'
+\e^{-ik'y} \vac(a(k)a(k'))
+\]
+which becomes, after using the anti-commutation relations
+for the Fourier modes
+\begin{multline}
+\label{vacuum2}
+\vac(\psi(x)\psi(y))=\int_0^{\infty}\dd k\,\e^{-ik(x-y)}=\\
+\lim_{\varepsilon\to 0^+}\int_0^{\infty}\dd k\,
+\e^{-ik(x-y)-k\varepsilon}
+=\lim_{\varepsilon\to 0^+}\frac{-i}{x-y-i\varepsilon}
+\end{multline}
+and we shall encounter this formula many times later on 
+(e.g \ref{repn of Fermi on the circle}). The projection 
+defining the two-point function is the projection 
+onto the positive modes, $P=\chi\big(\open{0}{\infty}\big)$
+such that 
+\[
+(Pf)(x)=\int_0^{\infty}\dd k\, \tilde{f}(k)\,\e^{-ikx}.
+\]
+\end{example}
+
+\bigskip
+The construction of Bose field works similarly, with the exception
+that commutation relations pose some obstructions for the norm
+of the operators to be bounded. However one starts from the 
+assignment $f\mapsto \phi(f)$ and defines the Weyl operators
+as the exponential $W(f)=\e^{i\phi(f)}$. Commutation relations
+are then implemented by means of a skew-symmetric two form
+$\sigma\colon (f,g)\mapsto\sigma(f,g)$ as
+\[
+W(f)W(g)=\e^{i/2\,\sigma(f,g)}W(f+g).
+\]
+The set of all $W(f)$ is a *-algebra and imposing the condition
+$\norm{W(f)}=1$ ensures that it has a unique $C^*$ norm. The set
+\[
+\conj{\set{W(f)\mid f\in \hil}}_{\norm{\blank}}
+\eqqcolon \text{CCR}(\hil,\sigma)
+\]
+is then turned into a $C^*$-algebra. Notice in turn that unitarity 
+and the Weyl commutation relations imply $W(0)=1$ and $W(f)^*=
+W(-f)$. Along the same lines as before, representations may emerge
+assigning the state $\omega(W(f))=\e^{-1/2\,{\norm{f}}^2}$.

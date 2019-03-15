@@ -1,0 +1,224 @@
+
+
+\documentclass[a4paper,twoside,openright,titlepage,
+               headinclude,,footinclude,BCOR5mm,
+               numbers=noenddot,cleardoublepage=empty,
+               tablecaptionabove]{scrreprt}
+              
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{indentfirst}
+\usepackage[style=philosophy-modern,hyperref]{biblatex}
+\usepackage{chngpage}
+\usepackage{calc}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{lipsum}
+\usepackage{shapepar}
+\usepackage{pifont}
+\usepackage[eulerchapternumbers,subfig,beramono,eulermath,pdfspacing,listings]{classicthesis}
+\usepackage{arsclassica}
+\usepackage{microtype}
+\usepackage{classicthesis}
+\usepackage{comment}
+\usepackage{makeidx}
+\usepackage[tight,english]{minitoc}
+\usepackage{mathtools,amsthm,amsfonts,amssymb}
+\usepackage{bm}
+\usepackage{braket}
+\usepackage{booktabs}
+\usepackage{enumitem}
+    \renewcommand{\labelenumi}{(\roman{enumi})}
+\usepackage{slashed}
+\usepackage{acronym}
+    \acrodef{KMS}[KMS]{Kubo-Martin-Schwinger}
+    \acrodef{GNS}[GNS]{Gelfand-Naimark-Segal}
+\usepackage{epigraph}
+    \renewcommand{\textflush}{flushepinormal}
+    \renewcommand{\epigraphflush}{flushright}
+    \setlength{\epigraphwidth}{17em}
+    \setlength{\afterepigraphskip}{3\baselineskip}
+\usepackage{simplewick}
+\usepackage{comment}
+\usepackage{tikz}
+    \usetikzlibrary{decorations.markings}
+
+\input{arsclassica-settings}
+
+
+\makeindex
+
+% -------- new commands defined below -----------
+\newcommand{\alg}[1]{\mathcal{A}\left(#1\right)}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\I}{\textrm{I}}
+\newcommand{\s}{\textrm{S}^1}
+\newcommand{\hil}{\mathcal{H}}
+\newcommand{\U}[1]{\textrm{U}(#1)}
+\newcommand{\bh}{\mathcal{B}(\mathcal{H})}
+\newcommand{\vac}{\omega_0}
+\newcommand{\vN}{\mathcal{M}}
+\newcommand{\dom}[1]{\mathfrak{D}(#1)}
+\newcommand{\wed}{\mathcal{W}}
+\newcommand{\blank}{(\;{\cdot}\;)}
+\newcommand{\poin}{\overline{\mathfrak{P}}}
+\newcommand{\loren}{\overline{\mathfrak{L}}}
+\newcommand{\conj}[2][3]{{}\mkern#1mu\overline{\mkern-#1mu#2}} % conjugate
+\newcommand{\LL}[1]{\textrm{L}^2(#1)}
+\newcommand{\LX}{\textrm{LX}}
+\newcommand{\dd}{\textrm{d}}
+\newcommand{\dummy}{Bla bla bla\ldots} % dummy text to be inserted
+\newcommand{\open}[2]{\mathopen{]}#1,#2\mathclose{[}}
+\newcommand{\ram}[1]{\pi_{\textrm{R}}(\psi(#1))}
+\newcommand{\im}[1]{\mathfrak{Im}(#1)}
+
+
+%new command for the underbrace
+\newdimen{\underlen}%
+\newcommand{\under}[2]{%
+\underset{\settowidth{\underlen}{$#2$}%
+\makebox[\underlen]{%
+\leftarrowfill$\scriptstyle\;#1\;$\rightarrowfill}}{#2}}
+
+
+\definecolor{navy}{rgb}{0,0.25,0.65}
+\newcommand{\navy}[1]{\textcolor{navy}{#1}}
+
+% some awesome delimiters
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} % use also the *-version
+\DeclarePairedDelimiter{\comm}{[}{]} % use also the *-version
+\DeclarePairedDelimiter{\ant}{\{}{\}} % use also the *-version
+\DeclarePairedDelimiter{\wick}{:}{:} % use also the *-version
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert} % use also the *-version
+\DeclarePairedDelimiter{\scal}{(}{)}
+
+% hyphenation patterns
+\hyphenation{di-men-sio-nal}
+\hyphenation{va-lues}
+\hyphenation{po-si-ti-ve}
+\hyphenation{e-ner-gy}
+\hyphenation{se-pa-ra-ting}
+\hyphenation{Hil-bert}
+\hyphenation{to-po-lo-gy}
+\hyphenation{va-cuum}
+\hyphenation{ma-the-ma-ti-cal}
+\hyphenation{ge-ne-ra-ted}
+\hyphenation{sui-ta-ble}
+\hyphenation{ac-cor-din-gly}
+\hyphenation{eve-ry}
+\hyphenation{ge-ne-ral}
+\hyphenation{o-pe-ra-tors}
+\hyphenation{com-mut-ing}
+\hyphenation{sa-tis-fies}
+\hyphenation{mo-dels}
+\hyphenation{dif-fe-rent}
+\hyphenation{mo-du-lar}
+\hyphenation{in-te-re-sting}
+\hyphenation{pa-ra-me-ter}
+\hyphenation{mo-du-lar}
+\hyphenation{ta-king}
+
+
+% some awesome math operators
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Det}{det}
+\DeclareMathOperator{\e}{e}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\ad}{Ad}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\dm}{dim}
+\DeclareMathOperator{\OPE}{OPE}
+
+
+% equations labelled within the sections
+\numberwithin{equation}{section}
+
+
+%newtheoremstyle
+\newtheoremstyle{classicthm}
+{15pt}
+{15pt}
+{\rmfamily}
+{}
+{\itshape}
+{:}
+{.5em}
+{}
+
+\theoremstyle{classicthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{property}{Property}
+\newtheorem*{proposition}{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{lemma}{Lemma}
+
+
+
+\begin{document}
+\pagenumbering{roman}
+\pagestyle{plain}
+\input{FrontBackMatter/Titlepage}
+\input{FrontBackMatter/Titleback}
+\cleardoublepage\input{FrontBackMatter/Dedication}
+\cleardoublepage\input{FrontBackMatter/zusammenfassung}
+\pagestyle{scrheadings}
+\dominitoc
+\cleardoublepage\include{FrontBackMatter/Contents}
+\cleardoublepage\include{FrontBackMatter/Abstract}
+\cleardoublepage
+
+%********************************************************************
+% Mainmatter
+%*******************************************************
+\pagenumbering{arabic}
+{\epigraph{The German term ``Nahwirkungsprinzip'' is
+            more impressive than the somewhat colourless word 
+           ``locality.''}%
+           {R. Haag, \emph{Local quantum physics}.}
+\part{Preliminaries}
+\cleardoublepage\include{Chapters/AQFT}
+\cleardoublepage\include{Chapters/CFT}
+\cleardoublepage\include{Chapters/vN}
+\cleardoublepage
+\epigraph{In AQFT it is a long outstanding question,
+	     what physical meaning the Tomita-Takesaki
+            modular objects have.}%
+           {H.-W. Wiesbrock, \emph{Commun.\ Math.\ Phys.\  
+           {\bf 157}, 83 (1993)}.}
+\part{Multi-geometric modular action in quantum
+     field theory}
+\cleardoublepage\include{Chapters/MT}
+\cleardoublepage\include{Chapters/Currents}
+\cleardoublepage
+% Backmatter
+%*******************************************************
+\appendix  %changes the way sectional units are numbered
+\epigraph{I still belong to the minority
+            of people who believe that the universe 
+	    is four dimensional.}%
+           {D. Buchholz, Rome, July 2013.}
+
+\part{Back matter}
+\cleardoublepage\include{FrontBackMatter/Appendix}
+\cleardoublepage\include{FrontBackMatter/Conclusions}
+\cleardoublepage\include{FrontBackMatter/Acknowledgments}
+
+\clearpage
+\input{FrontBackMatter/Bibliography}
+
+% this is for the index -----------------------------------------------------
+\manualmark
+{\spacedlowsmallcaps{\indexname}}
+\pagestyle{scrheadings}
+\addcontentsline{toc}{chapter}{\tocEntry{\indexname}}
+\printindex
+\end{document}

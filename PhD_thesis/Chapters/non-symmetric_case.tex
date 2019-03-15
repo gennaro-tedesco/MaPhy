@@ -1,0 +1,262 @@
+%*****************************************
+\subsection{The non-symmetric case}
+\label{beta non-symmetric}
+%*****************************************
+We turn now the attention to the vacuum representation in 
+the non-symmetric case 
+and try to follow the same arguments as before, in 
+order to figure out whether an analogous map, 
+playing the role of $\beta$, can be derived for 
+non-symmetric intervals.
+As we said, we take $\textrm{E}_N$ to be any union
+of $N$ disjoint intervals on the real line (likewise
+on the circle via Cayley map); thus we are looking for 
+\begin{equation}
+\label{beta_non-sym}
+{\beta}'\colon\mathcal{A}^N(\I)\to\alg{\textrm{E}_N}
+\end{equation}
+that still preserves the vacuum state
+$\vac^{(N)}\circ\beta=\vac\otimes\cdots\otimes\vac$. 
+
+For $N=2$ every non-symmetric two-interval can be 
+obtained by applying a M\"obius transformation $\mu$ on a 
+symmetric one. Therefore the generic 
+$\beta'_2$ is nothing but $\mu\circ\beta_2$ and the vacuum 
+preservation is ensured by the fact that any M\"obius 
+transformation preserves itself the vacuum state. This 
+result in no more true for $N\neq 2$ and in the general 
+case we need arguments coming from modular theory to
+help our constructions.
+
+\bigskip 
+In order to introduce such a map we briefly recall a 
+general result: let the intervals be given by 
+$\I_k=\mathopen{]}a_k,b_k\mathclose{[} \subset \R$ and define 
+the function $X(x),\,x\in \R$ by
+\begin{equation}
+\label{CHfunction}
+X(x) = - \prod_{k=1}^N \frac{x-a_k}{x-b_k}\,.
+\end{equation}
+This function maps each interval monotonously onto $\R_+$, 
+so that every $X\in \R_+$ happens to have exactly $n$ 
+pre-images (which we refer to as $X_1^{-1}(X),\ldots,X_n^{-1}(X)$), 
+one in each interval, $X_j^{-1}(X) \in I_j$.
+We borrow the formulae appearing in \cite{CH:2009} 
+for reasons that will become clear later. 
+In particular, we look at the 
+form of the modular automorphisms group for Fermi fields
+localised in disjoint intervals, equation \eqref{MGdisj}
+ \begin{multline*}
+ \sqrt{{X_k^{-1}(X)}'}\,\sigma_t\left(\psi(X_k^{-1})\right)=\\
+ \sum_{j=1}^N\,O(X,t)_{kj}\sqrt{{X_k^{-1}(\delta_t(X))}'}
+ \psi\left((X_j^{-1}(\delta_t X))\right).
+ \end{multline*}
+Here fields are evaluated on the real line as functions 
+of the variable $X\in\R_+$. We thus have a collection 
+of $N$ fields: $\psi_1(X),\ldots,\psi_N(X)$. The 
+map $\beta'$ is explicitly given by
+\begin{equation}
+\label{map_beta_general}
+\beta'(\psi_i(X))= \sum_{r=1}^N {O(X)}_{ir}\,\sqrt{{X_r^{-1}(X)}'}\ 
+\psi(X_r^{-1}(X))
+\end{equation}
+where the mixing matrix $O(X)$ is the solution of 
+\eqref{CHcocycle} given in terms of the anti-path
+ordered exponential
+\begin{equation}
+\label{OonK}
+O(X)=\overline{P}\,\textrm{exp} \left(-\frac{1}{2\pi}
+\int_{X_0}^X \dd X'\ K(X')\right)
+\end{equation}
+the matrix $K(X)$ being 
+\[
+{K(X)}_{kj}=
+ \begin{cases}
+ 2\pi\,\dfrac{\sqrt{{X_k^{-1}(X)}'\,{X_j^{-1}(X)}'}}
+ {{X_k^{-1}(X)} - {X_j^{-1}(X)}}\quad\mbox{if } k\neq j\\
+ 0\quad\mbox{otherwise}
+ \end{cases}\,.
+\]
+The idea is that all the information is encoded into the special
+form of the function \eqref{CHfunction} and the dependence
+of $O(X)$ on $K(X)$ as in \eqref{OonK}. In order to prove that
+the above $\beta'$ preserves the vacuum state we  
+show the equality of the two-point functions proving that
+they satisfy the same differential equation with common initial
+conditions. Equality of the two-point function means
+\[
+(\vac \circ \beta')(\psi_i(X)\,\psi_j(Y))=
+\vac^{(2)}(\psi_i(X)\,\psi_j(Y))=\frac{-i}{X-Y}\,\delta_{ij} 
+\]
+Expanding the left hand side we are led to
+\begin{align*}
+(\vac \circ \beta')(\psi_i(X)\,\psi_j(Y))=&\,
+\vac\left(\sum_{r=1}^N{O(X)}_{ir}\sqrt{{X_r^{-1}(X)}'}
+\psi(X_r^{-1}(X))\right.\\ 
+& \left.\sum_{s=1}^N{O(Y)}_{js}\sqrt{{Y_s^{-1}(Y)}'}
+\psi(Y_s^{-1}(Y))\right)\\   
+=&\sum_{r,s=1}^N O(X)_{ir} O(Y)_{js}\sqrt{{X_r^{-1}(X)}'}
+\sqrt{{Y_s^{-1}(Y)}'}\\ 
+&\vac(\psi(X_r^{-1}(X))\psi(Y_s^{-1}(Y)))\\ 
+\overset{!}{=}&\,\vac^{(2)}(\psi_i(X)\,\psi_j(Y))
+=\frac{-i}{X-Y}\,\delta_{ij}\,.
+\end{align*}
+Multiplying both sides by $X-Y$ and taking the 
+derivative with respect to $X$ gives 
+\begin{multline*}
+\sum_{r,s=1}^N O(X)_{ir} O(Y)_{js} \sqrt{{Y_s^{-1}(Y)}'}
+\left(\sum_{p\neq r} (X-Y)K(X)_{rp}\sqrt{{X_r^{-1}(X)}'}
+\vac(p,s)\right. \\
++ \left.\frac{\partial}{\partial X}\left( (X-Y)\sqrt{{X_r^{-1}(X)}'}
+\vac(r,s)\right)\right)=0
+\end{multline*}
+as a consequence, for each $r,s$ it must be proven that
+\footnote{In the following line $\vac(p,s)$ stands for
+$\vac(\psi(X_p^{-1}(X))\psi(Y_s^{-1}(Y)))$.}
+\begin{multline*}
+\sum_{p\neq r} (X-Y)K(X)_{rp}\sqrt{{X_r^{-1}(X)}'}
+\vac(p,s)\\
++\frac{\partial}{\partial X}\left( (X-Y)\sqrt{{X_r^{-1}(X)}'}
+\vac(r,s)\right)=0.
+\end{multline*}
+The explicit form of $K(X)$ and the derivatives 
+help us to obtain the easier to handle equation
+\begin{equation}
+\label{finalns}
+\frac{1}{2}\frac{(X_r^{-1})''}{(X_r^{-1})'}-\sum_{p\neq r}
+\frac{(X_p^{-1})'}{X_r^{-1}-X_p^{-1}}=
+\sum_{p=1}^n \frac{(X_p^{-1})'}{X_p^{-1}-Y_s^{-1}}
+-\frac{1}{X-Y}
+\end{equation}
+It is now fundamental that the dependence $X_p^{-1}\equiv
+X_p^{-1}(X)$ is given by the function \eqref{CHfunction};
+this is because the inverse roots $X_p^{-1}$ appear as roots
+of the polynomial ${\mathcal{P}}_X(x)= X\prod_{k=1}^N(x-b_k)+
+\prod_{k=1}^N(x-a_k)=0$. After the decomposition in terms of 
+its solutions we obtain the useful identity
+\[
+(X+1)\prod_{k=1}^N (x-X_k^{-1}(X)) = 
+{\mathcal{P}}_X(x)= X\prod_{k=1}^N(x-b_k)+
+\prod_{k=1}^N(x-a_k)
+\]
+which in turn becomes, after factorising out 
+$\prod_{k=1}^N(x-b_k)$ 
+on the RHS and evaluating it in $x=Y$
+\begin{equation}
+\label{polCH}
+\prod_{k=1}^N (Y^{-1}-X_k^{-1}(X))=\prod_{k=1}^N(Y^{-1}-b_k)
+\left(\frac{X-Y}{X+1}\right)
+\end{equation}
+where $Y^{-1}$ is any of the inverse roots of $\mathcal{P}(Y)$.
+This equation is the starting point to obtain both sides of
+\eqref{finalns} as follows: taking the derivative with respect to
+$X$ of the logarithm of \eqref{polCH} gives back
+\[
+\sum_{k=1}^N\frac{(X_k^{-1})'}{X_k^{-1}-Y^{-1}}=
+\frac{1}{X-Y} - \frac{1}{X+1}
+\]
+therefore the right hand side of \eqref{finalns} turns out 
+to be nothing but $-1/(X+1)$. Obtaining the right hand side
+is slightly trickier and we proceed as follows: we start 
+again from \eqref{polCH} taking the logarithm and derivative
+with respect to $X$ and then we multiply both sides 
+by $(X-Y)(X_j^{-1}-Y^{-1})$. This gives 
+\begin{multline*}
+(X-Y)(X_r^{-1})' +\sum_{p\neq r} \frac{(X_p^{-1})' 
+(X_r^{-1}-Y^{-1})(X-Y)}{X_p^{-1}-Y^{-1}}=\\
+X_r^{-1}-Y^{-1} - \frac{(X_r^{-1}-Y^{-1})(X-Y)}{X+1}
+\end{multline*}
+from which we take again the derivative with respect to
+the variable $X$ twice and eventually evaluate it in the
+point $Y^{-1}=X_r^{-1}$ (and therefore $Y=X$). In the summation
+term we make use of $(ND^{-1})'' = N'' D^{-1}$ whenever both
+$N$ and $N'$ vanish in the limit (which is the case at hand).
+Carrying the algebra out gives
+\[
+2 (X_r^{-1})'' - 2 \sum_{p\neq j} \frac{(X_p^{-1})'(X_r^{-1})'}
+{X_r^{-1}-X_p^{-1}}= (X_r^{-1})'' - \frac{(X_r^{-1})'}{X+1}
+\]
+namely nothing but \eqref{finalns}. Now we are left with the 
+common initial conditions to be proven (we choose $X=Y$): 
+once again, equality of the two-point function 
+$\vac\circ\beta'=\vac^{(2)}$ reads
+\[
+\sum_{r,s=1}^N O(X)_{ir} O(Y)_{js}\sqrt{{X_r^{-1}(X)}'}
+\sqrt{{Y_s^{-1}(Y)}'}\,\frac{-i}{X_r^{-1}-Y_s^{-1}}
+=\frac{-i}{X-Y}\,\delta_{ij}.
+\]
+Multiplying both sides by $X-Y$ and splitting the sum into
+$r=s$ and $r\neq s$ leads us to
+\begin{multline*}
+\lim_{X\to Y}\ \sum_{r=1}^N\left(\sum_{r\neq s} 
+O(X)_{ir} O(Y)_{js}\sqrt{{X_r^{-1}(X)}'} \sqrt{{Y_s^{-1}(Y)}'}
+\frac{X-Y}{X_r^{-1}-Y_s^{-1}}+\right.\\
+\left. O(X)_{ir} O(Y)_{jr}\sqrt{{X_r^{-1}(X)}'} \sqrt{{Y_r^{-1}(Y)}'}
+\frac{X-Y}{X_r^{-1}-Y_r^{-1}}\right)=\delta_{ij}.
+\end{multline*}
+The first term vanishes in the limit, whereas the 
+divergence in the second term gives back $1/(Y_r^{-1})'$ 
+which cancels the square roots. Orthogonality of the 
+matrix $O(Y)$ ensures then the result.
+
+\bigskip 
+The symmetric case on the circle can be recovered as 
+a special case of the general one. In fact the evaluation 
+of $X(z)$ turns out to be the composition of the inverse 
+Cayley transform with a M\"obius transformation onto $\R_+$.
+Using trigonometric identities like $\prod^N_{k=1}(z-\omega_k)
+=z^N-\omega^N$ we find 
+\[
+X(z)=-\frac{(-1)^N-v^N}{(-1)^N-u^N}\cdot 
+\frac{z^N-u^N}{z^N-v^N}
+\]
+which is indeed a M\"obius transform of 
+$\frac{z^N-1}{i(z^N+1)}=C^{-1}(z^N)$. Therefore 
+\[
+X(x)=(C^{-1}\circ\mu\circ(z\mapsto z^N)\circ C)(x)
+\]
+where $\mu\colon\I\to\textrm{S}^1_+$ is the M\"obius 
+transform of the said form. In the general non-symmetric
+case the map $z\mapsto z^N$ is replaced by any general
+$N$-folded map $g$
+\[
+X(x)=(C^{-1}\circ\mu \circ g\circ C)(x)
+\]
+and $\mu$ here is arbitrary. The passage from the circle 
+to the real line, in the explicit formulae of $\beta'$, is 
+then achieved with the help of suitable M\"obius transformations,
+which do not affect the vacuum state. Consequently the 
+invariance of the vacuum two-point function on the real line
+ensures the same statement on the circle, and viceversa.
+
+\bigskip 
+The existence of an isomorphism $\mathcal{A}^N(\I)\to
+\alg{\textrm{E}_N}$ preserving the vacuum state implies that
+the corresponding \ac{GNS} vacuum representations are 
+isomorphic as well. This, in turn, produces a homomorphism 
+of many copies of the local algebra of a single 
+theory into the algebra of a single fermion localised
+in many intervals, represented on the Fock space.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************

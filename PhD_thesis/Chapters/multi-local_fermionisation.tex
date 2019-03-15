@@ -1,0 +1,239 @@
+%*****************************************
+\subsection{Multi-local fermionisation and 
+gauge transformations}
+\label{multi-local fermionisation}
+%*****************************************
+The multi-local isomorphism $\beta$ provides 
+a correspondence between fermions localised 
+essentially at our will. As we have seen, Fermi 
+theories sort of automatically contain (non)-abelian
+current algebras, due to the fact that these can 
+be embedded using the standard quarks construction
+from sufficiently many free fermions.
+
+This feature, in its general behaviour, is referred to 
+in the literature as ``fermionisation'', since it 
+allows to express bosons (the currents) in terms 
+of products of Fermi fields. In particular currents 
+are expressed as Wick products (equation \eqref{current})
+with subtraction of the vacuum expectation value;
+since $\beta$ preserves the vacuum state it extends to
+Wick products and therefore embeds 
+the currents giving rise to a new feature which is
+the delocalisation of the components of the current
+itself. We shall be more precise showing the 
+construction of such objects on the circle, because
+most of the formulae drastically simplify.
+
+\bigskip
+Let us start from the vacuum representation and
+take the case $N=2$; we look in particular at 
+symmetric intervals, for the sake of simplicity, 
+though the same construction can be easily generalised
+with different coefficients eventually. In terms of the 
+complex fermion the current is expressed as
+\begin{equation}
+\label{curr_complex}
+j(z)\coloneqq \wick{\phi^*\phi}(z)=
+i\,\wick{\psi_1\psi_2}(z);
+\end{equation}
+we are going to embed such formula with the help 
+of \eqref{beta}. As so, we have (we evaluate on $z^2$
+due to $\beta$) 
+\begin{align*}
+\beta(j(z^2))&=\beta\left(\wick{\phi^*\phi}(z^2)\right)\\
+&=\beta\left(\phi^*(z^2)\phi(z^2)-\vac(\phi^*(z^2)\phi(z^2))\right)\\
+&=\beta(\phi^*(z^2))\beta(\phi(z^2))-
+  \vac\circ\beta(\phi^*(z^2)\phi(z^2))\\
+&=\wick{\beta(\phi^*)\beta(\phi)}(z^2).
+\end{align*}
+The feature of $\beta$ to preserve the vacuum state means that 
+it can be taken into the Wick product
+due to commutativity $\beta\circ\wick{\blank}=\wick{\blank}
+\circ\beta$. Consequently we have
+\begin{align*}
+\beta(j(z^2))&=\wick{\frac{1}{2z}
+\left(\psi(z)-\psi(-z)\right)\frac{1}{2}
+\left(\psi(z)+\psi(-z)\right)}\\
+&=\frac{1}{4z}\,\wick{\psi(z)^2-
+\psi(-z)\psi(z)+\psi(z)\psi(-z)-\psi(-z)^2}
+\end{align*}
+Fermions anti-commute and so $\psi(z)^2=\psi(-z)^2=0$;
+moreover we have $-\psi(-z)\psi(z)=\psi(z)\psi(-z)$.
+Making use of such relations we come to the 
+\emph{multi-local fermionisation} formula on the 
+circle:
+\begin{equation}
+\label{multi-local_fermionisation}
+\beta(j(z^2))=\frac{1}{2z}\,\wick{\psi(z)\psi(-z)}
+\end{equation}
+The same expression, evaluated on the real line, looks like:
+\[
+\beta(j(q(x))= \frac{-i}{2x}\cdot\frac{(1-x^2)^2}{(1+x^2)}
+\,\wick{\psi(x)\psi(-1/x)}\,.
+\]
+The current embedded with the isomorphism $\beta$
+happens to be delocalised in two anti-podal points
+on the circle, $z$ and $-z$. This feature justifies 
+the term ``multi-local'' fermionisation (also in
+\cite{Rehren:2012wa}) here and henceforth, because
+the fermionisation is shared between pairs of 
+different points. We notice that this new representation 
+of the current is periodic on the circle 
+under the change $z\to -z$;
+in fact, both numerator (due to the anti-commutators)
+and denominator acquire a minus sign, cancelling each
+other altogether. Furthermore, since the expectation value 
+of a Wick product is always zero, we still have 
+$\vac\circ\beta (j(z^2))=0$. On the other hand the 
+two-point function is 
+
+\begin{align*}
+\vac\circ\beta(j(z^2)j(w^2))&=
+\frac{1}{4zw}\,\vac(\wick{\psi(z)\psi(-z)}\,
+\wick{\psi(w)\psi(-w)})\\[1ex]
+&=\frac{1}{4zw}\,\big(\vac(
+\bcontraction{}{\psi(z)}{\psi(-z)\psi(w)}{\psi(-w)}
+\bcontraction[2ex]{\psi(z)}{\psi(-z)}{}{\psi(w)}
+\psi(z)\psi(-z)\,\psi(w)\psi(-w))\\
+&\quad-\vac(
+\bcontraction{}{\psi(z)}{\psi(-z)}{\psi(w)}
+\bcontraction[2ex]{\psi(z)}{\psi(-z)}{\psi(w)}{\psi(-w)}
+\psi(z)\psi(-z)\,\psi(w)\psi(-w))\Big)\\[1ex]
+&=\frac{1}{4zw}\,\Big(-\vac(\psi(z)\psi(w))\cdot 
+\vac(\psi(-z)\psi(-w))\\
+&\quad+\vac(\psi(z)\psi(-w))\cdot
+\vac(\psi(-z)\psi(w))\Big)\\[1ex]
+&=\frac{1}{4zw}\cdot\frac{4zw}{(z^2-w^2)^2}
+=\vac(j(z^2)j(w^2))
+\end{align*}
+that is, the two-point function is preserved too.
+
+\bigskip 
+The embedded current can be decomposed into Fourier modes
+on the circle
+\[
+\beta(j(z^2))=\frac{1}{2z}\sum_{m,k\in\Z+1/2}^N
+\wick{\psi_m\psi_k}(-1)^{-k-1/2}z^{-m-k-1}
+\]
+if $m+k=n$ is odd then $(-1)^{k-n-1/2}=
+(-1)^{-k-1/2}$ and the sum vanishes because of 
+the anti-commutation relations: each contribution
+has its own opposite. Therefore the only allowed
+powers of $m+k$ are even powers of the form $m+k=2p$, 
+which lead us to 
+\[
+\beta(j_n)=\sum^{\infty}_{m=0}\psi_{n-m-1/2}\,
+\psi_{n+m+1/2}(-1)^{n+m+1}.
+\]
+The complex fermion is invariant under gauge 
+transformations generated by its own embedded 
+currents: if $j(z)=\wick{\phi^*\phi}(z)$ then
+Weyl-type operators are implemented by
+smearing with suitable test functions $f\colon\s\to\R$
+in order to obtain $W(f)=\e^{ij(f)}$. Gauge
+transformations are then given by
+\begin{align*}
+\phi'(z)&=\alpha_f(\phi(z))=W(f)\phi(z)W(f)^*
+=\e^{-if(z)}\phi(z)\\
+{\phi^*}'(z)&=\alpha_f(\phi(z)^*)=W(f)\phi(z)^*W(f)^*
+=\e^{if(z)}\phi(z).
+\end{align*}
+It is now very interesting to embed the gauge 
+transformations themselves with the help of $\beta$,
+in order to bring new delocalised gauge symmetries,
+a brand new feature that we are going to present and 
+fully exploit. If $\beta$ embedds the current then it
+generates embedded gauge transformations on the free
+fermion of the form
+\begin{align*}
+\beta(W(f))\psi(z)\beta(W(f))^*&=(\beta\circ\alpha_f\circ 
+\beta^{-1})\psi(z)\\
+&=(\beta\circ\alpha_f)(\phi(z^2)+z\,\phi(z^2)^*)\\
+&=\beta(\alpha_f(\phi(z^2)) + z\,\alpha_f(\phi(z^2)^*))\\
+&=\e^{-if(z^2)}\beta(\phi(z^2))+z\,\e^{if(z^2)}
+\beta(\phi(z^2)^*)
+\end{align*}
+eventually we end up with
+\begin{equation}
+\label{emb_gauge}
+\beta(W(f))\psi(z)\beta(W(f))^*=
+\cos{f(z^2)}\psi(z)-i\sin{f(z^2)}\psi(-z).
+\end{equation}
+The new remarkable feature is the bilocal mixing
+of $\psi(z)$ and $\psi(-z)$, reflecting the 
+non-locality of the isomorphism $\beta$.
+Of course the same calculations can be performed 
+in the situation $N>2$: in this case non-abelian 
+currents of the form $j_{rs}(z)\coloneqq
+\wick{\phi_r^*\phi_s}(z)$ can be embedded and we
+obtain representations of all these theories in 
+the Fock space of a single real free fermion. In the 
+many interval case $\beta$ delocalises the fields
+onto $2N$ points (equations \eqref{beta_any} and,
+in general, \eqref{map_beta_general}) and therefore 
+expressions like $\wick{\phi_r^*\phi_s}(z)$ present 
+sums of fields in pairwise coupled points
+$\psi(z_j)\psi(z_l)$ with position dependent 
+coefficients. Gauge transformations change 
+accordingly, having multi-local contributions 
+from different points. 
+
+\bigskip 
+The same argument can be run in the Ramond sector:
+the fact that the current $j(z)\coloneqq 
+\wick{\phi^*\phi}(z)=i\,\wick{\psi_1\psi_2}(z)$
+satisfies commutation relations in purely algebraic
+and independent of the representation. As a consequence 
+one can then take the two fields $\psi_1$ and $\psi_2$ in two
+different representations and \emph{twist} the 
+product. In fact, by taking $\psi_1$ in the vacuum
+sector and $\psi_2$ in the Ramond one, the 
+isomorphism \eqref{beta_ramond} embeds the 
+resulting current into the Ramond algebra 
+$\pi_{\textrm{R}}\Big(\alg{\sqrt{\I}}\Big)$. The Wick 
+product here is defined as the subtraction with 
+respect to the corresponding Ramond two-point function; 
+the result is, in the compact picture:
+\[
+\beta_{\textrm{R}}(j(z^2))=\frac{1}{2i z^2} \cdot 
+\wick{\ram{z}\ram{-z}}_{\textrm{R}}.
+\]
+The new current, as expected, is delocalised at two 
+anti-podal points in the Ramond representation; the 
+Wick product is essentially the standard operator 
+product, because the Ramond expectation value vanishes
+at the case at hand in the points $z,-z$. Also, the 
+formula changes sign under $z\to -z$, i. e. it is
+anti-periodic in the variable $z^2$, expressing the fact
+that the new current is twisted. Of course, the one-point 
+function is still zero, whereas the two-point function 
+becomes now:
+\begin{align*}
+\omega_{\textrm{R}}\circ\beta_{\textrm{R}}
+(j(z^2)j(w^2))&= -\frac{1}{4z^2w^2}\,\omega_{\textrm{R}}
+(\wick{\ram{z}\ram{-z}}\\
+&\wick{\ram{w}\ram{-w}})\\[1ex]
+&=\frac{1}{2zw}\cdot\frac{z^2+w^2}{(z^2-w^2)^2}
+\end{align*}
+after making use of the usual Wick contractions within the 
+expectation value. This formula has been previously
+mentioned by \cite{Ang:2011} as the ``twisted'' 
+representation of the current, in the context of
+vertex operator algebras (we refer the reader to 
+the references therein).
+
+
+
+
+
+
+
+
+
+
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************

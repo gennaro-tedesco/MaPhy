@@ -1,0 +1,213 @@
+%*******************************************************
+% Abstract
+%*******************************************************
+%\renewcommand{\abstractname}{Abstract}
+\pdfbookmark[1]{Introduction}{Introduction}
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\let\cleardoublepage\relax
+
+ \addcontentsline{toc}{section}{Introduction}
+ \chapter*{Introduction}
+ The main theoretical ingredient of algebraic quantum field
+ theory is the concept of field, which is supposed to
+ implement the principle of locality. Observables, identified
+ with the quantities that can be experimentally measured in a 
+ laboratory, must satisfy Einstein causality and additional
+ physical requirements that are seen to be realised in 
+ nature. Fields therefore appear as the building blocks
+ in order to construct such observables and, though they
+ may themselves be observables, they need not to. The idea 
+ lying at the basis of quantum field theory is the 
+ assignment of fields to each space-time region, where
+ events are supposed to take place. This reflects into 
+ the assignment of a net of algebras onto the Minkowski
+ space; physical measurements correspond, roughly speaking,
+ to states on the algebras and all the most important physical
+ quantities experimentalists are interested in can usually
+ be traced back to the evaluations of scalar product or 
+ particular combinations thereof, as for example correlations
+ functions and scattering amplitudes: notable in this 
+ sense is the Lehmann-Symanzik-Zimmermann formula reducing 
+ scattering amplitudes to time-ordered correlations functions
+ and their poles.
+ 
+ The algebraic approach to quantum field theory deals with
+ the mathematical properties of all these ingredients 
+ from the point of view of operator algebras. 
+ A marvelous walkthrough these aspects is provided by 
+ \cite{Haag} and \cite{roberts:2004} who give complete
+ explanations of why this is a necessary issue. The developement
+ of such a formalism is the key tool to the understanding of
+ quantum field theory itself and encodes almost all the 
+ features that we find as realised in nature. Many results
+ have been achieved thanks to the possibility to handle 
+ these mathematical tools, especially after very important
+ insights by Takesaki and Tomita, \cite{Borchers:1999},
+ \cite{Tak:1970}, \cite{TAKII:2002}, who reduced the origin
+ of space-time symmetries to abstract properties of von 
+ Neumann algebras, opening a brand new research field
+ consequently.
+ 
+ \bigskip 
+ A very important role in physics is played by systems 
+ which exhibit special symmetries, because this characteristic
+ helps a lot to reduce their complexity. In particular 
+ we have been concerned with models being symmetric under
+ conformal transformations, that is the set of transformations 
+ preserving the angles in the Minkowski space-time.   
+ In low dimensions, namely two, this symmetry happens to reduce to
+ very strict requirements with a well-known mathematical structure
+ described by the Virasoro algebra. Investigation of the 
+ properties of such algebras leads to amazing results
+ and progresses in the area. The Virasoro generators are 
+ moreover the modes of the stress-energy tensor, which 
+ generates space-time diffeomorphisms of the theory. 
+ As a consequence, a two-dimensional conformal field
+ theory is basically a quantum field theory endowed with
+ a stress-energy tensor whose generators must satisfy 
+ specific algebraic properties and commutation relations.
+ Also, the theory contains a special class of fields,
+ the ``primary fields'', whose transformations properties 
+ are very much related to how these fields commute with the 
+ stress-energy tensor itself.
+ 
+ Interestingly enough, conformal symmetries can be found
+ very often in actual physical systems. Most of the 
+ times this goes along with scaling invariance and,
+ although the two properties do not coincide, they 
+ are nevertheless very often interchanged. Models 
+ with no proper scale dimensions, as for example
+ massless models, are usually conformally invariant 
+ and form the prototypes we can look at, not to mention 
+ the huge amount of results, models and features carried
+ by string theory, which is the straightforward 
+ application of conformal field theory. However, within 
+ the already mentioned two-dimensional models, 
+ a special class is given
+ by the so called chiral theories, a group of models
+ where the fields only depend on the ``light-cone'' variables
+ $x^{\pm}\coloneqq x^0\pm x^1$.
+ Those theories decouples into two copies of 
+ singular theories, either of them being concerned with 
+ the one variable $x^+$ or $x^-$, respectively. This 
+ means that the whole business reduces to a one-dimensional 
+ theory, and the original model can be reconstructed eventually
+ taking the tensor product of the two one-dimensional copies. 
+ The term chiral becomes then synonym of one-dimensional 
+ world living on a light-ray:
+ \begin{figure}[htbp]
+ \centering 
+ \begin{tikzpicture}[scale=1.5]
+ \draw [->] (-1,0) --(1,0);
+ \draw [->] (0,-1) --(0,1);
+ \draw [dashed] (-0.75,-0.75) -- (0.75,0.75);
+ \draw [dashed] (0.75,-0.75) -- (-0.75,0.75);
+ \node at (1,-0.2) {\footnotesize $x^1$};
+ \node at (-0.2,1) {\footnotesize $x^0$};
+ \node[rotate around={45:(-0.6,2)}] 
+ {\footnotesize $x^+$};
+ \node[rotate around={-45:(0.5,1.8)}] 
+ {\footnotesize $x^-$};
+ \end{tikzpicture}
+ \end{figure}
+ 
+ \noindent Each real line supports both the time-like 
+ property (positivity of the energy) and the
+ space-like commutativity (causality). Moreover 
+ the real line can be taken onto the unit circle (minus 
+ a point) via the Cayley transformations and thus 
+ we shall basically be concerned with fields living 
+ on a circle, 
+ where the conformal transformations acquire the 
+ form of general diffeomorphisms.
+ 
+ \bigskip 
+ Going back to the mathematical questions, we have 
+ already stated that a revolutionising result 
+ was found by Tomita and Takesaki and undergoes 
+ the name of modular theory. Starting with a von 
+ Neumann algebra and a cyclic and separating state 
+ one can automatically construct an inner group of 
+ automorphisms $\sigma_t$ whose explicit form 
+ depends on the algebra itself and on the state 
+ provided. In some special case, where the algebras
+ are generated by local fields localised in particular 
+ space-time regions, this group of automorphisms 
+ happens to coincide with some symmetry group 
+ occurring in physics (Lorentz boosts, dilations). 
+ This result opens a brand new horizon of questions, 
+ because it seems that the space-time symmetries lie 
+ behind the physical content, back in the algebraic 
+ properties of the quantities at hand. It is tempting
+ to generalise such results and further investigate them.
+ The main content of this thesis is exactly modular theory 
+ for Fermi fields in one dimension: in particular, we have 
+ been looking at fields localised in disjoint intervals,
+ trying to derive and explain the features of their modular 
+ theory. It turns out that whenever we choose the fields 
+ to be localised in many disjoint intervals, the action of 
+ the modular group 
+ introduces a mixing among those different intervals on top 
+ of a geometric action moving the points, 
+ (\cite{CH:2009}, \cite{LMR:2009}). 
+ This result can be traced back to the existence of 
+ a vacuum preserving isomorphism moving the fermions 
+ all around the circle \cite{Rehren:2012wa}. We have
+ widely exploited this feature considering different 
+ representations of the algebras and different situations 
+ at hand, varying the geometric positions of the intervals 
+ and comparing the new results to previous statements.
+ Besides modular theory itself, this work gave us a 
+ deeper understanding of how Fermi fields behave on the
+ circle.
+ 
+ Also, since products of Fermi fields generate observables
+ as currents and the stress-energy tensor, these subtheories 
+ can be embedded via the mentioned isomorphism and new 
+ characteristics emerge. Currents generate gauge transformations
+ which are therefore delocalised all around the circle, as 
+ well as new multi-local diffeomorphisms given by the 
+ embedded stress-energy tensor. As a consequence, all the
+ standard constructions we have for fermions and related 
+ models can be rephrased in terms of this new aspect,
+ giving rise to a new class of perspectives.
+ 
+ \bigskip 
+ As for the  
+ organisation of the material, this thesis is divided into 
+ different parts. In the beginning we provide the standard 
+ description of the mathematical framework lying behind 
+ algebraic quantum field theory, following the lines of 
+ \cite{Haag}. We introduce the technical aspects of 
+ von Neumann algebras and the world of conformal field 
+ theory in the field theoretical setting. 
+ 
+ We then move to the analysis of the modular theory for 
+ fermions localised in different intervals, 
+ showing the new
+ aspects together with new insights on the standard 
+ constructions. We ought to mention that part of the 
+ ideas were triggered by the original work of 
+ Casini and Huerta, \cite{CH:2009}, where the authors 
+ calculated the modular group for fermions in disjoint 
+ intervals using methods coming from density matrices 
+ and statistical mechanics. We took their starting point 
+ to rephrase everything in the language of algebraic quantum 
+ field theory and operator algebras. Other ideas came from
+ different works on boson-fermion correspondences, 
+ \cite{Ang:2011} as well as others, and we
+ tried to contribute attacking the problems from the 
+ angle of local quantum physics.
+ 
+ A third part describes the class of models which can 
+ be obtained out of Fermi fields, mainly concerning
+ currents and their features, in the light of the 
+ new background provided. The multi-local features 
+ restrict to these subalgebras with the help of suitable 
+ gauge transformations, which can be related to the 
+ diffeomorphisms covariance in a limpid way.
+ 
+  
+\endgroup			

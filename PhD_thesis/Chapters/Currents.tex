@@ -1,0 +1,1162 @@
+%************************************************
+\chapter{Currents models and embeddings}\label{ch:Currents}
+\minitoc\mtcskip
+%************************************************
+
+%*******************************************************
+ \section{Loop groups}
+ \label{Loop groups}
+ We shall now briefly describe the construction of nets
+ of von Neumann algebras on the circle in the framework
+ of loop groups as shown in \cite{PS1986}. 
+ 
+ Let $G$ be a compact Lie group whose Lie algebra is denoted
+ by $\mathfrak{g}$: the set of all smooth maps
+ $LG\coloneqq\set{g\mid \s\to G}$ equipped with
+ pointwise multiplication $(g\cdot h)(z)=g(z)h(z)$
+ is an infinite dimensional Lie group called the loop
+ group. As such, it possesses a Lie algebra which can
+ be shown, as expected, to be the set of all maps 
+ $L\mathfrak{g}=\set{g\mid \s\to \mathfrak{g}}$. 
+ As set of maps, both of them can be equipped with the standard
+ topologies of uniform convergence and differential structure,
+ and thus a smooth map $\textrm{exp}\colon L\mathfrak{g}
+ \to LG$ exists and is a local homeomorphism in the connected
+ neighbourhood near the identity.
+ 
+ A localised subgroup $L_{\I}G$ is the set of all
+ such functions taking the trivial value $\bm{1}_G$ 
+ outside the interval $\I$, essentially  
+ \[
+ LG\coloneqq\set{g\mid \s\to G}\qquad
+ L_{\I}G\coloneqq \set{g\mid g(z)
+ =\bm{1}_G\in G, \text{ if }z\notin\I}.
+ \]
+ Since now on we shall focus on projective unitary 
+ representations of the compact Lie group $G$, where 
+ ``projective'' means that products are preserved up to a 
+ complex phase. In order to make formal sense 
+ of such a concept we introduce the following
+ definition:
+ \begin{definition}[2-cocycle]
+ Let $G$ be a group. A 2-cocycle is a map $\omega\colon
+ G\times G\to\s$ satisfying, however we choose $f,g,h\,\in G$
+ \[
+ \omega(f,g)\omega(fg,h)=\omega(f,gh)\omega(g,h);
+ \]
+ also, $\omega$ must be trivial on the identity element
+ $\omega(\bm{1}_G,g)=\omega(g,\bm{1}_G)=1$. By pointwise
+ multiplication the set of all 2-cocycles forms a group. 
+ Moreover, if there exists
+ $\beta\colon G\to \s$ such that
+ \[
+ \omega(f,g)=\frac{\beta(f)\beta(g)}{\beta(fg)}
+ \]
+ then the 2-cocycle is said to be a coboundary. 
+ \end{definition}
+ With the help of the above definition we can therefore
+ define projective representations of a loop group as
+ maps from the groups itself into the set of unbounded
+ operators on some Hilbert space preserving products
+ \[
+ W(g_1)W(g_2)=\omega(g_1,g_2)
+ W(g_1 g_2),\quad g_1,g_2\,\in LG
+ \]
+ $\omega$ being a cocycle of $LG$.
+ The assignment $\I\to\alg{\I}$ defined as
+ \[
+ \alg{\I}\coloneqq\set{W(g)\mid g\in L_{\I}G}''
+ \]
+ defines a net of local algebras whenever the cocycle
+ $\omega$ is local. Nets of von Neumann algebras defined
+ out of loop groups representations have the property
+ to only have finitely many inequivalent representations.
+ 
+ \bigskip
+ In the field theoretical setting such construction
+ are realised by taking the analogue of the Weyl operators
+ for current algebras. Let $\tau_a$ be a basis 
+ of the Lie algebra $\mathfrak{g}$ of G and define 
+ $f(z)=\tau_a f^a(z)$. We define the smeared current
+ $j(f)\coloneqq\oint_{\s}\dd z\, j_a(z)f^a(z)$
+ \[
+ \comm*{j(f_1),j(f_2)}=j\comm*{f_1,f_2} + 
+ k\oint_{\s}\dd z\,\omega(f_1,f_2)(z),
+ \quad f_1, f_2\in\,L\mathfrak{g}
+ \]
+ (notice here that, despite the same notation,
+ $\omega$ is an additive cocycle playing the infinitesimal
+ version of the previous one introduced for Weyl relations).
+ The corresponding Weyl operators are
+ \[
+ W(g)\coloneqq\e^{ij(f)}\qquad g(z)=\exp (f)(z)
+ \]
+ whose collection generates the local net of von Neumann
+ algebras~$\alg{\I}$ as $\textrm{supp}\ f\subset \I$.
+ 
+ In this context gauge transformations $\gamma$ are defined 
+ as automorphisms $\gamma\colon\alg{\I}\to\alg{\I}$ 
+ that preserve every local subalgebra and they may 
+ be inner implemented by means of the unitaries $W(g)$.
+ For instance, on currents, $\gamma(J^a)=W(g)J^a W(g)^*$ 
+ acts as
+ \[
+ \gamma(J^a\tau_a)=g(z)^{-1} J^a\tau_a g(z) +
+ k\,g(z)^{-1}\partial_z g(z);
+ \]
+ the matrices $\tau_a$ form a basis in the Lie algebra 
+ $\mathfrak{g}$ and the transformation law
+ for the actual fields (the currents) follow by multiplying
+ and taking traces with respect to $\tau_a$. For example, in
+ case $G=\textrm{SU}(2)$ a basis for the Lie algebra is 
+ given in terms of the Pauli matrices and thus, after using
+ \[
+ \sigma_i\,\sigma_j=i\,\epsilon_{ij}^{\phantom{ij}k}\sigma_k
+ +\delta_{ij}\bm{1}
+ \]
+ we obtain, taking into account that Pauli matrices
+ are traceless themselves
+ \[
+ \gamma(J^a)=f_{ab}\,J^b +\frac{1}{2}\,
+ i\tr\left(g(z)^{-1}\partial_z g(z)\sigma_a\right)
+ \] 
+ with $f_{a}^{\phantom{a}b}\,\sigma_b=g(z)^{-1}\sigma^a g(z)$.
+ On the other hand, let now $h\colon\s\to G$ be a function
+ periodic up to a central element $h_0\in Z(G)$. 
+ Any transformation of the form
+ \[
+ \gamma(J)=\ad h^{-1} (J) + h^{-1} \dd h
+ \]
+ still fulfils the requirements to be an
+ automorphism, because the central element
+ cancels out; nevertheless it is not implemented
+ by unitaries of the form $W(h)$ because 
+ $h$ is no more an element of the loop group.
+ Therefore, by using elements in $Z(G)$
+ we can construct automorphisms which are no
+ more implemented by unitaries but which are still 
+ inner symmetries. This is an interesting feature in the
+ context of representation theory of loop groups,
+ because the composition of states with such automorphisms
+ gives rise to inequivalent representations and all
+ simple sectors are of this form. As a 
+ consequence, different sectors arise according to
+ how many central elements the Lie group $G$ has.
+ Thus compact Lie groups with trivial centre only have
+ one simple sector (the vacuum sector).
+ \begin{example}[non-trivial sectors]
+ Let $\I_1$ and $\I_2$ be two intervals on the circle
+ such that their intersection is the union of two
+ disjoint intervals $\textrm{J}_1$ and $\textrm{J}_1$:
+ \begin{figure}[htbp]
+ \centering
+ \def\first{1.05}
+ \def\second{1.15}
+ \def\third{1.25}
+ \def\rad{0.95}
+ \begin{tikzpicture}[scale=1.5]
+ % circle
+ \path (0,0) coordinate (O);
+ \draw [style=dashed](O) circle (\rad);
+ % arcs
+ \draw [line width=0.4mm, color=navy!60!, domain=-20:200] 
+       plot ({\first*cos(\x)}, {\first*sin(\x)});
+ \draw [line width=0.4mm, color=navy!40!, domain=160:380] 
+       plot ({\second*cos(\x)}, {\second*sin(\x)});
+ \draw [line width=0.4mm, color=navy!80!, domain=160:200] 
+       plot ({\third*cos(\x)}, {\third*sin(\x)});
+ \draw [line width=0.4mm, color=navy!80!, domain=-20:20] 
+       plot ({\third*cos(\x)}, {\third*sin(\x)});
+ \node at (90:\third) {$\I_1$};
+ \node at (270:1.4) {$\I_2$};
+ \node at (180:1.6) {$\textrm{J}_1$};
+ \node at (0:1.55) {$\textrm{J}_2$};
+ %lines for the intervals
+ \draw [dotted] (-20:0.4) --(-20:1.5);
+ \draw [dotted] (20:0.4) --(20:1.5);
+ \draw [dotted] (160:0.4) --(160:1.5);
+ \draw [dotted] (200:0.4) --(200:1.5);
+ \end{tikzpicture}
+ \end{figure}
+ moreover, let $\alg{\textrm{J}_1}$ and $\alg{\textrm{J}_2}$ come 
+ accompanied with two different localised representations
+ $\pi_1\left(\alg{\textrm{J}_1}\right)$, 
+ $\pi_2\left(\alg{\textrm{J}_2}\right)$ different
+ from the defining vacuum representation. If now
+ $U\colon\pi_1\to\pi_2$ is a map intertwining such
+ representations, namely $U\,\pi_1(a_1)=\pi_2(a_1)\,U$,
+ then $U$ belongs, by Haag duality, to both
+ $\pi_0\left(\alg{\I_1}\right)$ and $\pi_0\left(\alg{\I_2}\right)$;
+ yet, the operator $U$ may differ when evaluated 
+ in $\pi_1$ and $\pi_2$, that is
+ $\pi_1(U)\neq\pi_2(U)$. One can prove, using 
+ Doplicher-Haag-Roberts theory of localised endomorphisms,
+ that in case the net $\I\to\alg{\I}$ has only the vacuum
+ sector no such problem occurs and the vacuum representation
+ is always faithful. This also helps to globally define the
+ whole algebra $\alg{\s}$ as the $C^*$-algebra generated by all
+ the $\vee_{\I}{\pi_0}(\alg{\I})=\bh$.
+ \end{example}
+ We want to remark once more that the quarks construction, as
+ showed in the previouos chapters, provides, in the field 
+ theoretical setting, the relation 
+ between Fermi fields and currents expressed 
+ as Wick products thereof.
+ 
+ 
+ \section{Currents models}
+ \label{Currents models}
+ We have previously seen that the isomorphism $\beta$ provides
+ a map $\beta\colon\mathcal{A}^{(N)}(\I)\to
+ \mathcal{A}(\sqrt[N]{\I})$ preserving the vacuum state
+ and its representation $\pi_0\circ\beta=\pi_0$. In
+ the particular case of $N=2$ a complex Fermi field
+ localised in one interval $\I$ is ``decomposed'' into
+ its symmetric and antisymmetric part
+ \begin{align*}
+ \phi(z^2)&=\frac{1}{\sqrt{2}}\left(\psi^{(1)}(z^2)
+           +i\psi^{(2)}(z^2)\right)\mapsto\frac{1}{2}
+           \left(\psi(z)+\psi(-z)\right)\\    
+ \phi^*(z^2)&=\frac{1}{\sqrt{2}}\left(\psi^{(1)}(z^2)
+           -i\psi^{(2)}(z^2)\right)\mapsto\frac{1}{2z}
+           \left(\psi(z)-\psi(-z)\right).
+ \end{align*}
+ The resulting representation is a twisted 
+ representation $\pi_0\otimes^t\pi_0$ 
+ because $\beta$ intrinsically carries
+ a twist on some fields, namely $\beta\circ\rot(2\pi)
+ =\beta\circ\wp$ where $\wp$ is the flip automorphism
+ flipping the tensor product $\wp\colon\mathcal{A}
+ \otimes\mathcal{A}\to\mathcal{A}\otimes\mathcal{A}$ 
+ such that $\wp(x\otimes y)=y\otimes x$.
+ 
+ The idea is now to extend this map to embedded models,
+ as well as currents and stress-energy tensor, trying to 
+ preserve its features. We are then looking for an
+ isomorphism which gives a correspondence
+ $\alg{\I}\otimes\alg{\I}\to\alg{\sqrt{\I}}$
+ also at the level of currents and stress-energy tensor,
+ decomposing the fields into their symmetric and
+ antisymmetric parts. Since the restriction of
+ $\beta$ does not, in general, preserve this embedded
+ subalgebras we should expect an additional gauge
+ transformation to compose $\beta$ with in order to
+ achieve the result.
+ 
+ \bigskip 
+ Let us denote by $\mathcal{A}^J(\I)$ the algebra of
+ currents localised in the interval $\I$. The purpose
+ is to explicitly construct a map $\iota\colon
+ \mathcal{A}^J(\I)\otimes\mathcal{A}^J(\I)\to
+ \mathcal{A}^J(\sqrt{\I})$ making use of $\beta$.
+ We start by taking two real Fermi fields $\psi(z)$ and
+ $\psi'(z)$ localised in $\sqrt{\I}$ 
+ and apply $\beta^{-1}$ in order to obtain
+ two complex Fermi fields $\phi(z^2), \phi'(z^2)$ 
+ localised $\I$. These fields can in turn be decomposed
+ into their respective real and imaginary parts as
+ \begin{align*}
+ \phi(z^2)&=\frac{1}{\sqrt{2}}\left(\psi^{(1)}(z^2)
+           +i\psi^{(2)}(z^2)\right)\\    
+ \phi'(z^2)&=\frac{1}{\sqrt{2}}\left(\psi^{(3)}(z^2)
+           +i\psi^{(4)}(z^2)\right)
+ \end{align*}
+ and thus we have generated four real Fermi fields,
+ $\psi^{(1)},\ldots,\psi^{(4)}$. Combinations of such
+ fields can be used to generate current algebras models
+ with gauge group $\textrm{O}(4)$, since in 
+ principle we can combine any two Fermi fields into
+ Wick products $\wick{\psi^i\psi^j}$; in particular
+ the construction runs as follows:
+ let us take the $\textrm{U}(1)=\textrm{SU}(2)$ 
+ current constructed out
+ of the combination of the two initial fields $j(z)\coloneqq
+ 2i\,\wick{\psi \psi'}(z)$ and embed by $\beta^{-1}$, taking
+ into account the inverse formula in 
+ \cite{Rehren:2012wa}.
+ We have
+ \begin{align*}
+ \beta^{-1}(\psi(z)\psi'(z))&=\left(\phi(z^2)+z\phi^*(z^2)\right)
+ \left(\phi'(z^2)+z\phi'^*(z^2)\right)\\
+ \beta^{-1}(\psi(z)\psi'(z)-\psi(-z)\psi'(-z))
+ &=2z\,\phi^*(z^2)\phi'(z^2)+2z\,\phi(z^2)\phi^*(z^2);
+ \end{align*}
+ as we see, only terms coupling hermitian products of $\phi^*\phi$
+ appear, and thus we may conclude this current is neutral,
+ the total charge being zero. Everything can be expressed
+ in terms of the initial four fermions, and since $\beta$ 
+ preserves the vacuum state and
+ then the Wick products, we find for the even modes of such
+ current
+ \[
+ \beta^{-1}\left(z\,j(z) -z\,j(-z)\right)=2 z^2 \left(J_{13}(z^2)
+ +J_{24}(z^2)\right)
+ \]
+ with $J_{13}(z)\coloneqq 2i\,\wick{\psi^{(1)}\psi^{(3)}}(z)$
+ and similarly for $J_{24}(z)$. The odd modes, instead,
+ present charged combinations $\phi(z^2)\phi'(z^2) +
+ z^2\,\phi^*(z^2)\phi'^*(z^2)$, giving rise to
+ \[
+ \beta^{-1}\left(z\,j(z) +z\,j(-z)\right)=J_+(z^2) +
+ z^2\,J_-(z^2) 
+ \]
+ with $J(z)\coloneqq J_{13}(z)-J_{24}(z) +i
+ \left(J_{14}(z)+J_{23}(z)\right)$. In a more compact
+ way the above relations can be written as
+ \begin{align*}
+ \beta^{-1}(\text{even})&=2 z^2\,J_0(z^2)\\
+ \beta^{-1}(\text{odd})&=J(z^2) + z^2\,J^*(z^2).
+ \end{align*}
+ Commutation relations between these currents show
+ particular features: the commutator $\comm{J_+,J_-}$
+ produces the third generator of $\mathfrak{su(2)}$ current algebra with
+ $J_3\coloneqq J_{12}+J_{34}$, yet both $J_+,J_-$ commute with
+ $J_0$. The structure is the one of a $\mathfrak{u(2)}\subset
+ \mathfrak{o(4)}$ current
+ algebra $\mathfrak{u(2)}=\mathfrak{su(2)}\oplus 
+ \mathfrak{u(1)}$ where $J_0$ plays the
+ role of the diagonal part in $\mathfrak{u(1)}$, the rest being
+ the $\mathfrak{su(2)}$ current algebra. However, the action of
+ $\beta^{-1}$ only gives back the commuting
+ currents $J_0$ and $J_{\pm}$. We may as well reverse the picture
+ and look at how the commuting currents, $J_0$ and $J_{\pm}$,
+ localised in $\mathcal{A}^J(\I)$
+ are decomposed into symmetric and antisymmetric 
+ part of a single current localised in 
+ $\mathcal{A}^J(\sqrt{\I})$.
+ 
+ \bigskip
+ With the help of suitable gauge transformations we can reduce
+ the combination $J_+(z)+z\,J_-(z)$ to just a single current.
+ $\textrm{SU}(2)$ gauge transformations $\gamma$ on
+ Fermi fields transform the embedded currents
+ $J^a(x)=\wick{\psi^* \sigma^a \psi}(x)$ as
+ \[
+ \gamma(J^a)\sigma_a=g(z)^{-1} J^a\sigma_a g(z) +
+ k\,g(z)^{-1}\partial_z g(z)
+ \]
+ where $g\in\textrm{SU}(2)$ and 
+ transformations for the actual fields $J^a$ follow
+ by multiplying both sides by $\sigma_c$ and
+ taking traces. Also, use $\sigma_a\sigma_b =
+ i\varepsilon_{ab}^{\phantom{ab}c}\,\sigma_c +
+ \delta_{ab}\bm{1}$. We obtain eventually
+ \begin{equation}
+ \label{GTcurrents}
+ \gamma(J^a)=f^a_{\phantom{a}b}\,J^b +\frac{1}{2}\,
+ \kappa\,\tr\left(g(z)^{-1}\partial_z g(z)\sigma^a\right)
+ \end{equation}
+ with $f^a_{\phantom{a}b}(z)\,\sigma^b=g(z)^{-1}\sigma^a g(z)$.
+ Such gauge transformations are automorphisms of the
+ algebras, though they may not preserve the vacuum state.
+ Exploiting the above equation with the group element
+ $g(z)=\e^{-i(\varphi/4)\sigma_3}
+ \e^{-i(\varphi/4)\sigma_2}$
+ gives back exactly
+ \[
+ \gamma\left(J_3(z^2)\right)=\sqrt{z}\,
+ \left(J_+(z^2)+z^2\,J_-(z^2)\right).
+ \]
+ Moreover, since $J_0$ plays the role of the diagonal
+ part $\mathfrak{u(1)}$ in $\mathfrak{u(2)}=\mathfrak{su(2)}
+ \oplus \mathfrak{u(1)}$ the map $\gamma$
+ can be regarded as acting diagonally on $J_0$. Therefore
+ we have
+ \begin{align}
+ \label{J0J3}
+ \left(\beta\circ\gamma\right)\left(J_0(z^2)\right)&=\frac{1}{2z}\,
+ \left(j(z)-j(-z)\right)\\
+ \left(\beta\circ\gamma\right)\left(J_3(z^2)\right)&=\frac{1}{2z}\,
+ \left(j(z)+j(-z)\right).
+ \end{align}
+ Defining $\iota=\beta\circ\gamma$ gives us the map we looked for
+ at the level of the currents. Interestingly enough, this map
+ produces an anti-periodic field when acting on $J_3$. Therefore
+ \[
+ \iota\colon\mathcal{A}^J(\I)\otimes\mathcal{A}^J(\I)\to
+ \mathcal{A}^J(\sqrt{\I}).
+ \]
+ The scenario we are dealing with looks now like, according 
+ to the scaling dimension:
+ \begin{align*}
+ {\text{Fermi}}^{\ d=\frac{1}{2}}& \qquad
+             \begin{matrix}
+             \phi(z^2)\\[1ex]
+             \phi^*(z^2)
+             \end{matrix}\
+             \overset{\beta}{\longrightarrow}\
+             \begin{matrix}
+             \psi(z)+\psi(-z)\\[1ex]
+             z^{-1}\left(\psi(z)-\psi(-z)\right)
+             \end{matrix}\\[3ex]
+ {\text{Currents}}^{\ d=1}&\qquad
+             \begin{matrix}
+             J_0(z^2)\\[1ex]
+             J_3(z^2)
+             \end{matrix}\
+             \xrightarrow[]{\beta\,\circ\,\gamma}
+             \begin{matrix}\
+             z^{-1}\left(j(z)-j(-z)\right)\\[1ex]
+             z^{-1}\left(j(z)+j(-z)\right)
+             \end{matrix}\\
+ \end{align*}
+ Of course, the twist emerges once we compose $\beta$ with
+ $\rot(2\pi)$ and this in turn emerges from the mere
+ commutation relations of any chiral field with the
+ rotations $\e^{2\pi iL_0}$,
+ \[
+ i\comm{L_0,\phi(z)}=i(z\partial_z +h)\phi(z)
+ \]
+ which integrates to
+ \[
+ \e^{it L_0}\phi(z)\e^{-itL_0}=\e^{ith}\phi(\e^{it}z).
+ \]
+ This means that for scaling dimension $h=1/2$ we have a minus 
+ sign at $t=2\pi$ if we evaluate fields in the vacuum 
+ representation, while no minus sign occurs in the Ramond
+ representation, since the latter presents an additional
+ $\sqrt{z}$ which absorbs the $-1$. In contrast, no minus
+ sign may appear for local fields with integer scaling dimension.  
+ 
+ \bigskip
+ Now, if we start from non-abelian current algebra
+ with level $\kappa$ and structure constants 
+ $f_{ab}^{\phantom{ab}c}$, we can easily construct 
+ models with twice the level just by taking
+ the symmetric and anti-symmetric parts. In detail we 
+ start with \cite{Fuchs:1992}
+ \begin{equation}
+ \label{cur_alg_z}
+ \comm*{J^a(z),J^b(w)}=f^{ab}_{\phantom{ab}c}\,J^c(z)\frac{1}{w}
+ \sum_{n\in\Z}\left(\frac{z}{w}\right)^n
+ +\frac{1}{zw}\,\kappa\,h^{ab}\sum_{n\in\Z}
+ \left(\frac{z}{w}\right)^n
+ \end{equation}
+ and construct
+ \begin{align*}
+ J^{2\kappa}_a(z^2)&\coloneqq J^{c}_a(z^2)\otimes\bm{1} +
+ \bm{1}\otimes J^{c}_a(z^2)\\
+ \Delta^{2\kappa}_a(z^2)&\coloneqq J^{c}_a(z^2)\otimes\bm{1} -
+ \bm{1}\otimes J^{c}_a(z^2)
+ \end{align*}
+ clearly both fields belong to $\mathcal{A}^J(\I)\otimes
+ \mathcal{A}^J(\I)$. These quantities satisfy current
+ algebras commutation relations like \eqref{cur_alg_z}
+ with twice the central charge
+ \begin{align*}
+ \comm*{J_a^{2c}(z^2),J_b^{2c}(w^2)}&=f_{ab}^{\phantom{ab}c}
+ \,J_c^{2c}(z^2)
+ \frac{1}{w^2}\sum_{n\in\Z}\left(\frac{z}{w}\right)^{2n}\\
+ &+\frac{1}{z^2 w^2}\,2c\,h_{ab}\sum_{n\in\Z}n
+ \left(\frac{z}{w}\right)^{2n}
+ \end{align*}
+ as for the other combinations
+ \begin{align*}
+ \comm*{J_a^{2c}(z^2),\Delta_b^{2c}(w^2)}&=f_{ab}^{\phantom{ab}c}
+ \Delta_c^{2c}(z^2)\frac{1}{w^2}\sum_{n\in\Z}
+ \left(\frac{z}{w}\right)^{2n+1}\\[2ex]
+ \comm*{\Delta_a^{2c}(z^2),\Delta_b^{2c}(w^2)}&=f_{ab}^{\phantom{ab}c}
+ \,J_c^{2c}(z^2)
+ \frac{1}{w^2}\sum_{n\in\Z}\left(\frac{z}{w}\right)^{2n+1}\\
+ &+\frac{1}{z^2 w^2}\,2c\,h_{ab}\sum_{n\in\Z}(n+1/2)
+ \left(\frac{z}{w}\right)^{2n+1}
+ \end{align*}
+ These commutation relations happen to be satisfied by the 
+ odd and even modes of a single current localised in $\sqrt{\I}$,
+ namely the assignment
+ \begin{align}
+ \alpha\left(J_a^{2c}(z^2)\right)&=\frac{1}{2z}
+ \left(j_a(z)-j_a(-z)\right)\label{J2c}\\
+ \alpha\left(\Delta_a^{2c}(z^2)\right)&=\frac{1}{2z}
+ \left(j_a(z)+j_a(-z)\right)\label{delta2c}
+ \end{align}
+ preserves the commutation relations, as easily seen
+ by summing up the Fourier modes. In detail let us 
+ restrict to the abelian case: the Fourier decomposition
+ of the current $J(z)=\sum_{n\in\Z}j_n z^{-n-1}$ gives
+ \begin{align*}
+ \alpha\left(J^{2c}_n\right)&=j_{2n}^c,\quad n\in\Z\\
+ \alpha\left(\Delta^{2c}_{\nu}\right)&=j_{2n}^c\quad 
+ \nu\in\Z+1/2
+ \end{align*}
+ which, by using $\comm{j_n,j_m}=n\,\delta_{n+m,0}\,c\,\bm{1}$ are
+ seen to satisfy the commutation relations
+ \begin{align*}
+ \comm*{\alpha\left(J^{2c}_n\right),\alpha\left(J^{2c}_m\right)}
+ &= n\,\delta_{n+m,0}\,2c\,\bm{1} = 2\,\alpha\comm*{j_n,j_m}\\
+ \comm*{\alpha\left(J^{2c}_n\right),
+ \alpha\left(\Delta^{2c}_{\nu}\right)}
+ &= n\,\delta_{n+\nu,0}\,2c\,\bm{1} = 2\,\alpha\comm*{j_n,j_{\nu}}\\
+ \comm*{\alpha\left(\Delta^{2c}_{\mu}\right),
+ \alpha\left(\Delta^{2c}_{\nu}\right)}
+ &= \mu\,\delta_{\mu+\nu,0}\,2c\,\bm{1} = 
+ 2\,\alpha\comm*{j_{\mu},j_{\nu}}.
+ \end{align*}
+ Summing up the Fourier series we obtain
+ \begin{align*}
+ \comm*{\alpha\left(J^{2c}(z^2)\right),\left(J^{2c}(w^2)\right)}&
+ =\alpha\comm*{\left(J^{2c}(z^2)\right),\left(J^{2c}(w^2)\right)}\\
+ \comm*{\alpha\left(J^{2c}(z^2)\right),\left(\Delta^{2c}(w^2)\right)}&
+ =\alpha\comm*{\left(J^{2c}(z^2)\right),\left(\Delta^{2c}(w^2)\right)}\\
+ \comm*{\alpha\left(\Delta^{2c}(z^2)\right),\left(\Delta^{2c}(w^2)\right)}&
+ =\alpha\comm*{\left(\Delta^{2c}(z^2)\right),\left(\Delta^{2c}(w^2)\right)}.
+ \end{align*} 
+ In the abelian case
+ the right hand side coincides with the quantities \eqref{J0J3} 
+ we previously calculated as $\beta\circ\gamma$, therefore we
+ may write 
+ \begin{align*}
+ \alpha\left(J^{2c}(z^2)\right)&=\left(\beta\circ\gamma\right) 
+                                 \left(J_0^{2c}(z^2)\right)\\
+ \alpha\left(\Delta^{2c}(z^2)\right)&=\left(\beta\circ\gamma\right) 
+                                 \left(J_3^{2c}(z^2)\right)
+ \end{align*}
+ meaning
+ \begin{align}
+ \left(\alpha^{-1}\circ\beta\circ\gamma\right)\left(J_0(z^2)\right)&=
+ J(z^2)\otimes\bm{1}+\bm{1}\otimes J(z^2)\\
+ \left(\alpha^{-1}\circ\beta\circ\gamma\right)\left(J_3(z^2)\right)&=
+ J(z^2)\otimes\bm{1}-\bm{1}\otimes J(z^2)
+ \end{align}
+ with the currents on the left hand side having twice the central
+ charge of the currents on the right hand side.
+ 
+ \subsection{The Kac-Frenkel construction}
+ \label{Kac-Frenkel}
+ We have seen in the previous section that starting
+ from two real Fermi fields the inverse action of
+ $\beta^{-1}$ gives back two complex Fermi fields which
+ in turn can be decomposed into their real and imaginary
+ parts. This brings us four Fermi fields whose 
+ combinations construct a non-abelian current model. 
+ In particular we can get a $\mathfrak{u}(2)$ current
+ model constituted by the currents
+ \begin{align*}
+ J_0&=J_{13} + J_{24}\\
+ J&=J_{13}-J_{24}+i\left(J_{14}+J_{23}\right)\\
+ J_1&=J_{13}-J_{24}\\
+ J_2&=J_{14}+J_{23}\\
+ J_3&=J_{12}+J_{34}
+ \end{align*}
+ whose commutation relations are
+ \begin{align}
+ \comm{J_i,J_j}&=\epsilon_{ij}^{\phantom{ij}k}J_k
+ \quad i,j,k=1,2,3\\
+ \comm{J_i,J_0}&=0
+ \end{align}
+ giving raise to $\mathfrak{u}(2)=\mathfrak{su}(2)$ (the former)
+ $\oplus \mathfrak{u}(1)$ (the latter). This also gives back
+ the commutations relations $\comm{J,J^*}$ with $J=J_1
+ +i\,J_2$.
+ 
+ \bigskip
+ The same $\mathfrak{u}(2)$ algebra can be derived
+ by using the Kac-Frenkel construction (\cite{Kac:VA})
+ out of two commuting currents $J_0$ (playing the role
+ of the diagonal $\mathfrak{u}(1)$ current) and $J_3$ as 
+ follows: the unitary Weyl operators on currents
+ $W(f)=\e^{ij(f)}$ evaluated on sharp test functions
+ $G_u(x)=q\cdot\theta(x-u)$ become the ``vertex operators''
+ (\cite{LRboundary:2009})
+ \[
+ V_{q}(x)=
+ \wick{\e^{iq \displaystyle{\int_{\infty}^x \dd u\,j(u)}}}\,;
+ \]
+ the operators $V_{\pm \sqrt{2}}(x)$ can be decomposed as  
+ \[
+ J^{\pm}(x)\coloneqq
+ \wick{\e^{\pm\sqrt{2} i \displaystyle{\int_{\infty}^x \dd u\,j(u)}}}=
+ J^1(x)\pm iJ^2(x)
+ \]
+ and $J_1,J_2$, together with $J_3= j/\sqrt{2}$, generate
+ an $\mathfrak{su}(2)$ current algebra and $J_0$ plays
+ the role of the $\mathfrak{u}(1)$ contribution. After
+ performing such construction care must be taken to the
+ fact that the vertex operators in general do not act
+ on the same Hilbert space as the constituting currents.
+ 
+ \section{Stress-energy tensor models}
+ The same game can be played with the stress-energy tensor 
+ and its Virasoro generators. Starting from a single
+ Fermi field $\psi(z)$ one can construct the related stress-energy
+ tensor (again following the quarks construction) as
+ \[
+ T^{c=1/2}(z)=\frac{-1}{4\pi}\,\wick{\psi \partial_z \psi}(z)
+ =\frac{-1}{8\pi}\wick{\psi\overset{\leftrightarrow}{\partial_z}
+ \psi}(z)
+ \]
+ with central charge $c=1/2$. Commutation relations follow
+ by implementing its decomposition in terms of Virasoro generators 
+ \[
+ T(z)=\frac{1}{2\pi}\sum_{n\in\Z}L_n z^{-n-2}
+ \]
+ where $L_n$ commute as in \eqref{Vir}. We obtain, on the
+ real line and on the circle picture respectively:
+ \begin{align*}
+ \comm*{T(x),T(y)}&=i\left(T(x)+T(y)\right)\delta'(x-y)
+ -i\,\frac{c}{24\pi}\,\delta'''(x-y)\\[2ex]
+ \comm*{T(z),T(w)}&=\frac{-1}{2\pi}\left(\frac{T(z)}{w^2}+
+ \frac{T(w^2)}{z^2}\right)\sum_{n\in\Z}n\left(\frac{z}{w}\right)^n\\
+ &-\frac{c}{48\pi^2}\,\frac{1}{z^2 w^2}\sum_{n\in\Z}(n^3-n)
+ \left(\frac{z}{w}\right)^n.
+ \end{align*}
+ In case of a complex Fermi field $\phi(z)=\psi^{(1)}(z)
+ +i\psi^{(2)}(z)$ the related stress-energy tensor is
+ exactly two copies of the individual stress-energy 
+ tensors constructed out of each of the two real Fermi fields
+ $\psi^{(1)}(z)$ and $\psi^{(2)}(z)$
+ \[
+ T^{c=1}(z)=\frac{-1}{4\pi}\,\wick{\psi^{(1)}\partial_z \psi^{(1)}}(z)
+ +\frac{-1}{4\pi}\,\wick{\psi^{(2)}\partial_z \psi^{(2)}}(z)=
+ \frac{-1}{8\pi}\wick{\phi^*\overset{\leftrightarrow}{\partial_z}
+ \phi}(z)
+ \]
+ The central charge is $2\cdot1/2=1$. Let us now define again
+ \begin{align*}
+ T^{2c}(z)&\coloneqq T^{c}(z)\otimes\bm{1}+\bm{1}\otimes T^{c}(z)\\
+ D^{2c}(z)&\coloneqq T^{c}(z)\otimes\bm{1}-\bm{1}\otimes T^{c}(z)
+ \end{align*}
+ and likewise the assignment
+ \begin{align}
+ \alpha\left(T^{2c}(z^2)\right)&\coloneqq
+ \frac{T^c(z)+T^c(-z)}{4z^2}+\frac{c}{32\pi z^4}\label{T2c}\\[2ex]
+ \alpha\left(D^{2c}(z^2)\right)&\coloneqq
+ \frac{T^c(z)-T^c(-z)}{4z^2}\label{D2c}
+ \end{align}
+ which implies, for the Virasoro modes
+ \begin{align*}
+ \alpha\left(L_n^{2c}\right)&=\frac{1}{2}L_{2n}^c+\frac{c}{16}\,
+ \delta_{n,0}\qquad n\in\Z\\[2ex]
+ \alpha\left(D_{\nu}^{2c}\right)&=\frac{1}{2}L_{2\nu}^c
+ \qquad \nu\in\Z+1/2.
+ \end{align*}
+ Virasoro relations for the generators $L_n^c$ imply
+ \begin{align*}
+ \comm*{\alpha\left(L_m^{2c}\right),\alpha\left(L_n^{2c}\right)}&
+ =(m-n)\alpha\left(L_{m+n}^{2c}\right)+\frac{2c}{12}(m^3-m)\,
+ \delta_{m+n,0}\\
+ \comm*{\alpha\left(L_m^{2c}\right),\alpha\left(D_{\nu}^{2c}\right)}&
+ =(m-\nu)\alpha\left(D_{m+\nu}^{2c}\right)\\
+ \comm*{\alpha\left(D_{\mu}^{2c}\right),\alpha\left(D_{\nu}^{2c}\right)}&
+ =(\mu-\nu)\alpha\left(D_{\mu+\nu}^{2c}\right)+\frac{2c}{12}(\mu^3-\mu)\,
+ \delta_{\mu+\nu,0}
+ \end{align*}
+ summing up the Fourier modes we obtain 
+ \begin{align*}
+ \comm*{\alpha\left(T^{2c}(z^2)\right),\alpha\left(T^{2c}(w^2)\right)}&=
+ \alpha\comm*{\left(T^{2c}(z^2)\right),\left(T^{2c}(w^2)\right)}\\
+ \comm*{\alpha\left(T^{2c}(z^2)\right),\alpha\left(D^{2c}(w^2)\right)}&=
+ \alpha\comm*{\left(T^{2c}(z^2)\right),\left(D^{2c}(w^2)\right)}\\
+ \comm*{\alpha\left(D^{2c}(z^2)\right),\alpha\left(D^{2c}(w^2)\right)}&=
+ \alpha\comm*{\left(D^{2c}(z^2)\right),\left(D^{2c}(w^2)\right)}
+ \end{align*}
+ meaning that $\alpha$, again, preserves the commutation relations. We 
+ have thus embedded two copies of the stress-energy tensor algebra
+ of central charge $c=1/2$ localised in $\I$ into one copy
+ of the same algebra localised in $\sqrt{\I}$. Denoting such algebra
+ as $\textrm{Vir}_{1/2}(\I)$ we have
+ \[
+ \alpha\colon\textrm{Vir}_{1/2}(\I)\otimes\textrm{Vir}_{1/2}(\I)
+ \subset \textrm{Vir}_{1}(\I)\to\textrm{Vir}_{1/2}(\sqrt{\I}).
+ \]
+ Notice that the assignment $\alpha$ turns out to be nothing
+ but the composition of $\beta$ with an automorphism of the current
+ algebra $\rho^{\frac{1}{4}}$ as in \cite{Rehren:2012wa} 
+ with $\rho^q(j(z))=j(z)+q/z$. Thus we have the 
+ identification $\alpha=\beta\circ\rho^{\frac{1}{4}}$ and $\rho$ 
+ plays the role of the gauge transformation $\gamma$ we have to compose 
+ $\beta$ with in order to obtain suitable homomorphisms. 
+ As a consequence, though $\beta$ itself does not restric to
+ subalgebras, compositions with suitable inner automorphisms do 
+ and we can extend the picture to fields of conformal scaling
+ dimension $2$
+ \begin{align*}
+ {\text{Fermi}}^{\ d=\frac{1}{2}}& \qquad
+             \begin{matrix}
+             \phi(z^2)\\[1ex]
+             \phi^*(z^2)
+             \end{matrix}\
+             \overset{\beta}{\longrightarrow}\
+             \begin{matrix}
+             \psi(z)+\psi(-z)\\[1ex]
+             z^{-1}\left(\psi(z)-\psi(-z)\right)
+             \end{matrix}\\[3ex]
+ {\text{Currents}}^{\ d=1}&\qquad
+             \begin{matrix}
+             J_0(z^2)\\[1ex]
+             J_3(z^2)
+             \end{matrix}\
+             \xrightarrow[]{\beta\,\circ\,\gamma}
+             \begin{matrix}\
+             z^{-1}\left(j(z)-j(-z)\right)\\[1ex]
+             z^{-1}\left(j(z)+j(-z)\right)
+             \end{matrix}\\[3ex]
+ {\text{Virasoro}}^{\ d=2}&\qquad
+             \begin{matrix}
+             T^1(z^2)\\[1ex]
+             D^1(z^2)
+             \end{matrix}\
+             \xrightarrow[]{\beta\,\circ\,\rho^{\frac{1}{4}}}
+             \begin{matrix}\
+             z^{-2}\left(T^{\frac{1}{2}}(z)+T^{\frac{1}{2}}(-z)\right)\\[1ex]
+             z^{-2}\left(T^{\frac{1}{2}}(z)-T^{\frac{1}{2}}(-z)\right)
+             \end{matrix}
+ \end{align*}
+ Again, we have a manifestation of the twist carried by $\beta$
+ as flip on one of the two fields
+ \begin{align*}
+ \wp\left(T^1(z)\right)&=T^1(z),\\
+ \wp\left({\Delta}^1(z)\right)&=-{\Delta}^1(z).
+ \end{align*}
+
+ 
+ \section{Coset models}
+ \label{Coset models}
+ The quarks construction as described in 
+ \ref{The quarks construction}
+ shows that starting from a Lie algebra $\mathfrak{g}
+ \subset\mathfrak{u}(n)$
+ one can construct a stress-energy tensor with a 
+ suitable normalisation $\xi$ as 
+ \[
+ T_S(z)\coloneqq \xi\,\kappa_{ab}\,\wick{\,J^a J^b\,}(z)
+ \]
+ whose central charge is given by \eqref{coxeter} and whose
+ Fourier modes satisfy the Virasoro algebra commutation
+ relations. Let now take $\mathfrak{h}$ as a Lie subalgebra
+ $\mathfrak{h}\subset\mathfrak{g}$ and let us apply the
+ Sugawara construction to $\mathfrak{h}$ and $\mathfrak{g}$
+ respectively. In general, the two stress-energy tensors,
+ which we denote as $T^{\mathfrak{h}}, T^{\mathfrak{g}}$ 
+ do not coincide. By taking $T^{\mathfrak{g}/\mathfrak{h}}(z)
+ \coloneqq T^{\mathfrak{g}}(z)-T^{\mathfrak{h}}(z)$ (as shown in 
+ \cite{GKO:1986},  \cite{GKO:1985}) we can construct
+ another stress-energy tensor (``coset'' SET) 
+ commuting with the $T^{\mathfrak{h}}$ 
+ whose central charge is the difference of the
+ central charges of the constituent models
+ \[
+ c^{\mathfrak{g}/\mathfrak{h}}=
+ c^{\mathfrak{g}}-c^{\mathfrak{h}}.
+ \]
+ An important class of such models is given by the
+ so called ``diagonal'' embeddings of an algebra into
+ many of its commuting copies, $\mathfrak{g}
+ \subset \mathfrak{g} \oplus\ldots\oplus\mathfrak{g}$. The total 
+ current is then just the sum of each single current
+ \[
+ J^a(x)=\left(j^a(x)\otimes\bm{1}\otimes\ldots\bm{1}+
+ \ldots+\bm{1}\otimes\ldots\otimes\bm{1}\otimes j^a(x)
+ \right)
+ \]
+ and since the different copies commute with one other
+ the level of the resulting algebra is just the sum
+ of the level of each diagonal component. As a consequence
+ the total central charge for the stress-energy tensor is
+ \[
+ c=\left(\frac{k_1}{k_1+g}+\ldots+\frac{k_n}{k_n+g}+
+ \frac{k_1+\ldots+ k_n}{k_1+\ldots k_n+g}\right)
+ \dm \mathfrak{g}.
+ \]
+ For example, taking $k$ copies of (level $k=1$) 
+ $\mathfrak{su}(n)$ current models we can construct
+ an $\mathfrak{su}(n)$ at level $k$ current model.
+ Also, by iteration of this method one can get 
+ representations of Virasoro algebras with $c<1$ just
+ by taking diagonal embeddings of 
+ ${\mathfrak{su}(n)}_{k+1}$ into ${\mathfrak{su}(n)}_k
+ \oplus {\mathfrak{su}(n)}_1$, the total central
+ charge being given by
+ \[
+ T^{{\mathfrak{su}(n)}_k\oplus {\mathfrak{su}(n)}_1/
+ {\mathfrak{su}(n)}_{k+1}},\qquad
+ c_k+c_1-c_{k+1}=1-\frac{6}{(k+2)(k+3)}.
+ \]
+ Similarly, the stress-energy tensor of two complex
+ Fermi fields has central charge $c=2$, while the 
+ stress-energy tensor for the embedded $\mathfrak{su}_1$
+ has $c=1$; therefore one can construct a coset stress-energy 
+ tensor whose central charge is $c=2-1=1$ and
+ this happens to be exactly the abelian contribution
+ $\mathfrak{u}(1)$ into $\mathfrak{u}(2)=\mathfrak{u}(1)
+ \oplus \mathfrak{su}(2)$ of the form
+ \[
+ T(x)=\frac{1}{4\pi}\,\wick{j^2}(x)
+ \]
+ (see, for example, \cite{Fuchs:1992}).
+ 
+ \section{Embedding via Longo-Xu map}
+ \label{Embedding via Longo-Xu map}
+ We have obtained the results previously mentioned by using the 
+ embedding of $\beta$ and some gauge transformations
+ suitably chosen. We shall now show that the same
+ result can be easily achieved by using the general 
+ transformation properties of conformal fields under 
+ diffeomorphisms and the Longo-Xu map (\cite{LX:2004}
+ and \ref{Longo-Xu}). As a recall we assume to be equipped
+ with a conformal net $\I\to\alg{\I}$ fulfilling the 
+ split property: therefore, given $\I_1,I_2$ 
+ there exists an isomorphism $\chi\colon\alg{I_1}\vee
+ \alg{I_2}\to\alg{I_1}\otimes\alg{I_2}$ such that
+ $\chi(x_1 x_2)=x_1\otimes x_2$, however you choose
+ $x_1\in \I_1,x_2\in\I_2$. Diffeomorphisms of the net
+ $\mu\colon\I\to\I_j$ are implemented on the algebras
+ by means of adjoint action of unitaries $U(\mu)$ and
+ this provides isomorphisms $\alg{\I}\to\alg{\I_j}$ 
+ given by (\cite{LX:2004})
+ \[
+ \phi_I\coloneqq\left.\ad U(\mu)\right|\alg{\I}.
+ \]
+ Consequently the Longo-Xu map 
+ $\LX=\chi\circ\phi_{\I}^N$ gives an 
+ isomorphism 
+ \[
+ \LX\colon\mathcal{A}^N(\I)\to\mathcal{A}
+ (\I_1\cup\ldots \cup\I_N)
+ \]
+ explicitly realised as
+ $\LX(x_1\otimes\ldots\otimes x_N)=\phi_{\I}(x_1)
+ \cdot\ldots\cdot\phi_{\I}(x_N)$.
+ 
+ \bigskip
+ Let us now restrict ourselves to the particular case
+ of two intervals and diffeomorphisms given in terms of 
+ square root maps, namely $\mu_1(z^2)=z,\,\conj{\mu}(z^2)=-z$. 
+ They are implemented on fields as 
+ \[
+ \phi_{\I}(\varphi(z))=\ad U(\sqrt{\blank})\varphi(z)=
+ \left(\frac{\partial \mu(z)}{\partial z}\right)^h\,
+ \varphi(\mu(z))
+ \]
+ $h$ being the conformal scaling dimension. The corresponding Longo-Xu
+ map is $\LX\colon\mathcal{A}^2(\I)\to\alg{\sqrt{\I}}$. On the
+ doubled currents 
+ \begin{align*}
+ J^{2c}(z^2)&=J^c(z^2)\otimes\bm{1}+\bm{1}\otimes J^c(z^2)\\
+ \Delta^{2c}(z^2)&=J^c(z^2)\otimes\bm{1}-\bm{1}\otimes J^c(z^2)
+ \end{align*}
+ the Longo-Xu map acts as
+ \begin{align*}
+ \LX\left(J^{2c}(z^2)\right)&=\left(\frac{1}{2z}\right)^1 j^c(z)\bm{1}
+ + \bm{1}\left(\frac{-1}{2z}\right)^1 j^c(-z)=
+ \frac{j(z)-j(-z)}{2z}\\[2ex]
+ \LX\left(\Delta^{2c}(z^2)\right)&=\left(\frac{1}{2z}\right)^1 j^c(z)\bm{1}
+ - \bm{1}\left(\frac{-1}{2z}\right)^1 j^c(-z)=
+ \frac{j(z)+j(-z)}{2z}
+ \end{align*}
+ which exactly correspond to equations \eqref{J2c} and \eqref{delta2c}.
+ Consequently we derive that $\alpha=\beta\circ\gamma=\LX$ and
+ thus $\beta$ and $\LX$ are related to each other through a gauge
+ transformation $\gamma$. Of course this must be the case, since
+ the Longo-Xu map does not preserve the vacuum state (diffeomorphisms
+ ``destroy'' correlations), while $\beta$ does. 
+ 
+ Similarly we can apply the Longo-Xu map to the stress-energy tensor
+ and its doubled copy
+ \begin{align*}
+ T^{2c}(z)&\coloneqq T^{c}(z)\otimes\bm{1}+\bm{1}\otimes T^{c}(z)\\
+ D^{2c}(z)&\coloneqq T^{c}(z)\otimes\bm{1}-\bm{1}\otimes T^{c}(z)
+ \end{align*}
+ keeping in mind that $T$ does not transform as a primary field
+ under diffeomorphisms, rather it is quasi-primary and an extra 
+ contribution due to the Schwarz derivative occurs.
+ \begin{align*}
+ \LX\left(T^{2c}(z^2)\right)&= 
+                \left(\left(\frac{1}{2z}\right)^2 T(z)+\right.
+                \left.\frac{c}{12}s(g(z),z)\right)\bm{1}\\
+ &+ \bm{1}\left(\left(\frac{-1}{2z}\right)^2 T(-z) +\right.
+                \left.\frac{c}{12}s(g(z),z)\right)\\
+ &=\frac{T(z)+T(-z)}{4z^2}+\frac{c}{32\pi z^4}.
+ \intertext{On the other hand the Schwarzian derivative
+ cancels out if we take the difference}
+ \LX\left(D^{2c}(z^2)\right)&= \frac{T(z)-T(-z)}{4z^2}.
+ \end{align*}
+ We have obtained equations \eqref{T2c} and \eqref{D2c}
+ just via mere application of the diffeomorphisms invariance
+ and the split property, which we assume to hold for the net 
+ at hand. We deduce again $\alpha=\beta\circ\rho^{\frac{1}{4}}
+ =\LX$. 
+
+ \bigskip
+ \begin{figure}[htbp]
+ \centering
+ \def\radius{1.05}
+ \def\rad{0.95}
+ \def\out{1.15}
+ \begin{tikzpicture}[scale=1.5]
+ % circle
+ \path (0,0) coordinate (O);
+ \draw [style=dashed](O) circle (\rad);
+ % boundary points
+ \path (20:\radius) coordinate (A2);
+ \path (260:\radius) coordinate (B2);
+ \path (140:\radius) coordinate (C2);
+ %middle points
+ \path (30:\out) coordinate (A3);
+ \path (280:\out) coordinate (B3);
+ \path (158:\out) coordinate (C3);
+ \path (163:\out) coordinate (C4);
+ % control points
+ \path (90:1.3) coordinate (P1);
+ \path (220:1.3) coordinate (P2);
+ % arcs
+ \draw [line width=0.4mm, color=navy!60!] (A2) arc (20:60:\radius);
+ \draw [line width=0.4mm, color=navy!60!] (B2) arc (260:300:\radius);
+ \draw [line width=0.4mm, color=navy!60!] (C2) arc (140:180:\radius);
+ \draw plot [smooth, tension=3] coordinates {(C3) (P1) (A3)};
+ \draw plot [smooth, tension=3] coordinates {(C4) (P2) (B3)};
+ % nodes
+ \node at (160:1.7) {$\phi(z^2)$};
+ \node at (20:1.5) {$\phi(z)$};
+ \node at (300:1.5) {$\phi(-z)$};
+ \end{tikzpicture}
+ \end{figure}
+ The picture that we have now is that, for each scaling dimension,
+ i.e. for Fermi fields, embedded currents and stress-energy tensor,
+ although $\beta$ does not exactly restrict to the respective subalgebra,
+ its composition with suitable gauge transformations gives back exactly
+ the Longo-Xu map, which in turn is the manifestation of the
+ diffeomorphisms covariance of the net (assumed the split property
+ to hold). Both maps, $\beta$ and $\LX$, somehow ``distribute'' fields
+ around the circle $\I\to\sqrt{\I}$ and they are related to each other via 
+ tailor made gauge transformations:
+ \[
+ \beta=\LX\circ\text{gauge}
+ \]
+ where these acquires the explicit forms
+ \begin{align*}
+ \text{Fermi fields:}&\qquad\LX^{d=\frac{1}{2}}=
+ \beta\circ O^{\text{CH}}\\
+ \text{Currents:}&\qquad\LX^{d=1}=\beta|_J\circ\gamma\\
+ \text{Stress-energy tensor:}&\qquad\LX^{d=2}=
+ \beta|_{\text{Vir}}\circ\rho^{\frac{1}{4}}
+ \end{align*}
+ (of course we can read off $\gamma=O^{\text{CH}}|_J$ and
+ likewise $\rho^{\frac{1}{4}}=O^{\text{CH}}|_{\text{Vir}}$).
+ 
+ \section{Modular theory for currents}
+ \label{Modular theory for currents}
+ In the previous paragraphs we introduced the doubled 
+ theory of currents $\mathcal{A}^J\otimes\mathcal{A}^J$
+ as embedded from fermions using the 
+ quark construction: given a theory $\mathcal{A}^2(\I)$
+ describing two fermions in one interval we can generate
+ the embedded theory of currents $\mathcal{A}^J(\I)
+ \hookrightarrow\mathcal{A}^2(\I)$. 
+ Furthermore, we found out that the 
+ restriction of $\beta|_J$ can still be written as 
+ $\beta|_J=\LX|_{\textrm{F}}\circ\gamma$, where 
+ $\LX|_{\textrm{F}}$ denotes the restriction of the 
+ Longo-Xu map to the embedded fermions. Of course, 
+ since $\beta$ preserves the vacuum state for Fermions,
+ so does it restriction to currents. Nonetheless, one may 
+ wonder how the very particular form for gauge transformations
+ on currents, equation \eqref{GTcurrents}, may fit so that
+ the correlators are eventually preserved. This is due to 
+ the particular action of $\beta$ on Fermi fields; in fact
+ its peculiarity is to distribute fields onto anti-podal 
+ points and this feature reflects on the currents, as 
+ in formula \eqref{multi-local_fermionisation}. The 
+ presence of delocalised factors in, say, $z,-z$ exactly
+ cancels out the additional central term appearing in the 
+ gauge transformations so that everything cancels out 
+ eventually preserving the form of the vacuum expectation
+ values. As a matter of example we shall present the case 
+ of a doubled theory of currents originated from four 
+ fermions.
+ \begin{example}
+ Let $\mathcal{A}^2(\I)$ be the theory describing two fermions,
+ say $\psi_1,\psi_2$ and $\mathcal{A}^2(\I)\otimes
+ \mathcal{A}^2(\I)$ its double. The four fermions generated 
+ thereof can be labelled as 
+ \[
+ \Psi^1=\psi_1\otimes\bm{1},\quad \Psi^2=\psi_2\otimes\bm{1},
+ \quad \Psi^3=\bm{1}\otimes\psi_1,\quad
+ \Psi^4=\bm{1}\otimes\psi_2.
+ \]
+ These four fermions can generate $\binom{4}{2}=6$ different 
+ currents $J_{ij}(z)\coloneqq \Psi^i(z)\,\Psi^j(z)\in
+ \mathcal{A}^J(\I)\otimes\mathcal{A}^J(\I)$ (no Wick product
+ occurs because the vacuum expectation values vanish anyway) 
+ generating in turn a non-abelian current algebra 
+ with gauge group $\textrm{O}(4)$. We shall see that the 
+ action of the Longo-Xu map on these currents is local 
+ on some pairing, whereas it is non-local on some 
+ others. In fact, let us take the action of 
+ diffeomorphisms $\mu_j\colon \I\to\I_j$ as 
+ $\mu_1(z)=\sqrt{z},\mu_2(z)=-\sqrt{z}$ upon, 
+ for instance,
+ $J_{12}(z)=\Psi^1(z)\Psi^2(z)=
+ \psi_1(z)\psi_2(z)\otimes\bm{1}$; we have 
+ \begin{multline*}
+ \LX(J_{12}(z))=\LX(\psi_1(z)\psi_2(z)\otimes\bm{1})\\=
+ \sqrt{\mu_1'(z)}\,\psi_1(\mu_1(z))\,
+ \sqrt{\mu_1'(z)}\,\psi_2(\mu_1(z))\cdot\bm{1}
+ \end{multline*}
+ because the diffeomorphisms both act on the first 
+ term in the tensor product, distributing the fields
+ in $\mu_1(z)$. Then
+ \[
+ \LX(J_{12}(z))=\mu_1'(z)\,\psi_1(\mu_1(z))\,
+ \psi_2(\mu_1(z))=\mu_1'(z)\,\wick{\psi_1\psi_2}(\mu_1(z))
+ \]
+ exploiting $\wick{\psi_1\psi_2}=\psi_1\psi_2-\vac(
+ \psi_1\psi_2)=\psi_1\psi_2-0$. We can consequently 
+ state that the current $J_{12}$ is distributed 
+ locally at the point $\mu_1(z)$; the same happens
+ for those other currents having the initial fermions
+ in the same position in the tensor product, like, for 
+ example, $J_{34}(z)=\Psi^3(z)\Psi^4(z)=\bm{1}\otimes 
+ \psi_1(z)\psi_2(z)$
+ \[
+ \LX(J_{34}(z))=\mu_2'(z)\,
+ \wick{\psi_1\psi_2}(\mu_2(z));
+ \]
+ we conclude then that the two possible local actions 
+ are the following ones:
+ \[
+ \LX(J_{12}(z))=\mu_1'(z)\,j_{12}(\mu_1(z)),\qquad 
+ \LX(J_{34}(z))=\mu_2'(z)\,j_{12}(\mu_2(z)).
+ \]
+ The other possible pairings present non-local 
+ contributions, as well as, for example, 
+ $J_{13}(z)=\Psi^1(z)\Psi^3(z)=\psi_1(z)\otimes^t 
+ \psi_1(z)$
+ \[
+ \LX(J_{13}(z))=\sqrt{\mu_1'(z)}\,\psi_1(\mu_1(z))
+ \,\sqrt{\mu_2'(z)}\,\psi_1(\mu_2(z));
+ \]
+ because of the presence of the same fermion field 
+ $\psi_1$, the vacuum expectation value is non-zero 
+ and therefore we get
+ \begin{multline*}
+ \LX(J_{13}(z))=\sqrt{\mu_1'(z)\mu_2'(z)}\,\psi_1(\mu_1(z))
+ \,\psi_1(\mu_2(z))\\
+ =\sqrt{\mu_1'(z)\mu_2'(z)}\,\wick{\psi_1(\mu_1(z))\,
+ \psi_1(\mu_2(z))}-\frac{\sqrt{\mu_1'(z)\mu_2'(z)}}
+ {\mu_1(z)-\mu_2(z)}
+ \end{multline*}
+ which is delocalised in the two points 
+ $\mu_1(z),\mu_2(z)$.
+ 
+ \bigskip
+ The action of the diffeomorphisms is a ``true'' 
+ action only on some of the currents, taking them  
+ into actual currents localised elsewhere. This can be 
+ viewed as a true action on the currents of the 
+ subgroup $\textrm{O}(2)
+ \times\textrm{O}(2)\subset\textrm{O}(4)$, while 
+ the remaining currents are moved in $\mu_1(z),
+ \mu_2(z)$ without summing up again to actual currents.
+ 
+ We can use this argument to reconstruct the form of 
+ the one-point function. In fact, since $\vac(J(z))=0$,
+ we expect $\beta|_J$ to preserve $\vac\circ\beta|_J=
+ \vac$. Acting on currents we obtain 
+ \begin{align*}
+ \vac\circ\beta|_J(J(z))&=\vac\circ\LX\circ\gamma(J(z))\\
+ &=\vac\circ\LX(J(z)+\textrm{central term})
+ \end{align*}
+ where $(J(z)+\textrm{central term})$ has to be intended as
+ in equation \eqref{GTcurrents} and the central term 
+ is of the form $1/2\,
+ \kappa\,\tr\left(g(z)^{-1}\partial_z g(z)\sigma^a\right)$.
+ Using the explicit form of the Lie algebra valued gauge 
+ transformations and the structure constants the trace sums
+ up to either zero or the identity, the only numerical 
+ prefactors being derivatives of the diffeomorphisms $\mu$
+ in the point $z$, which cancel the presence of the 
+ additional vacuum expectation value in some delocalised
+ currents appearing in the model once we act with the
+ Longo-Xu map. Again, the multi-local behaviour of 
+ $\beta$ helps to prevent obstructions and to preserve 
+ the one-point function:
+ \begin{align*}
+ \vac\circ\beta|_J(J(z))&=\vac
+ \circ\LX(J(z)+\textrm{central term})\\
+ &=\vac\Bigg(J(z) \under{\textrm{cancellations}}
+ {-\frac{\sqrt{\mu_1'(z)\mu_2'(z)}}
+  {\mu_1(z)-\mu_2(z)}+ \textrm{central term}}\Bigg)\\
+  &=\vac(J(z))=0.
+ \end{align*}
+ \end{example}
+ On the other hand, if the action were strictly local on 
+ all the involved currents, then obstructions for the 
+ vacuum one-point function would definitely occur,
+ because cancellations would no more take place and 
+ the additional central term arising from the gauge 
+ transformations could not be wiped off. As a consequence,
+ if we start from a pure local theory of currents, no 
+ vacuum preserving isomorphism in the form 
+ $\beta=\LX\circ\gamma$ may exist.
+ As distribution $\vac(j(x))=0$  means that
+ there can be no class of functions $f$ such that 
+ $\vac(j(f))\neq 0$. From this it directly follows that
+ a similar argument applies to the non-existence of 
+ a vacuum preserving isomorphism for Bose fields; in 
+ fact, if this were true then we would have
+ \[
+ \vac\circ\beta\left(\varphi(f)\right)=
+ \vac\left(\varphi(f)\right)
+ \]
+ choosing $f$ integrating to zero. Then, since 
+ $\varphi(f)=-j(g)$, with $f(x)=g'(x)$ then this would
+ imply
+ \[
+ \vac\circ\beta\left(j(g)\right)=
+ \vac\left(j(g)\right)=0
+ \]
+ and this cannot hold due to the explicit 
+ form of $\beta=\LX\circ\textrm{gauge}$. In fact, as we 
+ pointed out, $\beta(j)\sim j + \textrm{const.}\cdot\bm{1}$
+ and thus
+ \[
+ \vac\circ\beta\left(j(g)\right)=
+ \vac(j(g))+\int_{\R}\dd x\,g(x)=
+ 0 +\int_{\R}\dd x\,g(x)
+ \]
+ and this is again if also $g(x)$ integrates itself to
+ zero, but this cannot go along with the integral of
+ $f(x)=g'(x)$ being zero as well.
+ \begin{example}
+ Let us take again the doubled theory of two fermions,
+ $\mathcal{A}^2(\I)\otimes\mathcal{A}^2(\I)$, containing
+ the four fermions as stated in the previous example 
+ \[
+ \Psi^1=\psi_1\otimes\bm{1},\quad \Psi^2=\psi_2\otimes\bm{1},
+ \quad \Psi^3=\bm{1}\otimes\psi_1,\quad
+ \Psi^4=\bm{1}\otimes\psi_2.
+ \]
+ The corresponding stress-energy tensor is, by 
+ construction,
+ \[
+ T(z)=-\frac{1}{4\pi}\sum_{i=1}^4\,
+ \wick{\Psi^i\partial_z\Psi^i}(z)
+ \]
+ and thus 
+ \begin{multline*}
+ T^{2c}(z)=-\frac{1}{4\pi}\wick{\psi_1\partial_z\psi_1}(z)\otimes\bm{1}
+ -\frac{1}{4\pi}\wick{\psi_2\partial_z\psi_2}(z)\otimes\bm{1}\\
+ +\bm{1}\otimes-\frac{1}{4\pi}\wick{\psi_1\partial_z\psi_1}(z)
+ +\bm{1}\otimes-\frac{1}{4\pi}\wick{\psi_2\partial_z\psi_2}(z),
+ \end{multline*}
+ which is nothing but $T^{2c}(z)=T^c(z)\otimes\bm{1}
+ +\bm{1}\otimes T^c(z)$. Due to the fact that there are no 
+ mixed terms paired in the tensor products, the action of the 
+ $\LX$ map is local on each component of the tensor product
+ individually. We have 
+ \begin{multline*}
+ \LX\big(T^{2c}(z)\big)=\LX\big(T^c(z)\otimes\bm{1}
+ +\bm{1}\otimes T^c(z)\big)\\
+ =\Big(\mu_1'(z)^2\,T^c(\mu_1(z))+\frac{c}{12}s(\mu_1(z),z)\Big)
+ \cdot\bm{1}\\
+ +\bm{1}\cdot\Big(\mu_2'(z)\,T^c(\mu_2(z))+
+ \frac{c}{12}s(\mu_2(z),z)\Big).
+ \end{multline*}
+ On the other hand if one considers the Sugawara
+ stress-energy tensor $T_s(z)=\xi\,\kappa_{ab}
+ \wick{J^aJ^b}(z)$ with currents given by $J_{ij}(z)
+ =\Psi^i(z)\Psi^j(z)$ then anti-local components 
+ may occur, according to the choice of the Lie
+ algebra.
+ \end{example}

@@ -1,0 +1,329 @@
+%*****************************************
+\chapter{Appendix}
+\label{ch:Appendix}
+\minitoc\mtcskip
+%*****************************************
+
+\section{On the passage to two-dimensional models}
+As aforementioned, we focused our attention on 
+one-dimensional chiral models where fields depend
+on the light-cone variables $x_{\pm}$ only. 
+Taking two such theories, respectively described by the nets
+of algebras $\alg{I_+}, \alg{I_-}$ (with obvious
+understanding of notations), the chiral two-dimensional
+model is given by the tensor product $\alg{\mathcal{O}}=\alg{I_+}\otimes
+\alg{I_-}\subset\mathcal{B}(\mathcal{O})$, with the space-time region 
+$\mathcal{O}$ given by $I_+\times I_-$. For the tensor product
+theory of observables the vacuum state (actually its
+\ac{GNS} representation) is the tensor product 
+$\Omega\otimes\Omega$ (acting on $\hil\otimes\hil$)
+and therefore the modular theory
+derived thereof decomposes into tensor products as 
+well. In fact the anti-linear operator \eqref{Tomita}
+becomes $S_0\colon a(\Omega\otimes\Omega)\mapsto 
+a^*(\Omega\otimes\Omega),\,a\,\in\alg{O}$ and the 
+corresponding modular operator is the tensor product
+$\Delta_{\mathcal{O}}^{it}=\Delta_+^{it}\otimes
+\Delta_-^{it}$, giving rise to modular automorphisms group 
+as $\sigma^t=\sigma^t_{I_+}\otimes\sigma^t_{I_-}$
+by verification of the \ac{KMS} condition.
+In particular $\mathcal{O}$ are double cones
+if $\I_+,\I_-$ are two intervals, the forward light 
+cone $\mathcal{V}_+$ as $\R_+\times\R_+$ and the
+right wedge as $\R_+\times\R_-$. Replacing everywhere
+$\R_+\to\R_-$ gives the backward light cone and the 
+left wedge, respectively.
+
+
+\section{More on the geometric action of modular groups
+for special regions}
+It has been pointed out that the most of the modular theory
+relies on the result of Bisognano and Wichmann 
+\eqref{BiWi} expressing the modular group and the 
+modular conjugation for Wightmann fields localised in 
+wedge regions. This results allows some sort of
+generalisations to the cases of space-time regions
+that can be obtained as geometric transformations of
+the wedges, provided the vacuum vector to be invariant
+under such transformations. In particular, we shall recall
+here a remarkable result found out by \cite{HisLon:1982}
+for double cones and massless scalar fields obeying the 
+Klein-Gordon equation. 
+
+The original result by Hislop and Longo refers to the 
+four-dimensional case, but nevertheless it can be transferred to 
+two dimensions. In particular, in order to do so, the scalar
+field $\phi(f)$ has to be smeared with test functions 
+which are light-cone variables derivatives, namely 
+$f=\partial_{\pm} g$, $g$ being an appropriate test 
+function. We proceed by noticing that 
+double cones $\mathcal{O}$ can be mapped 
+into wedge regions $\wed$ by means of the inversion map
+\[
+\rho\colon(x^0,x^1)\mapsto\rho(x^0,x^1)=
+\frac{1}{\abs{x}^2}\big(-x^1,-x^0\big),\quad 
+\abs{x}^2=(x^0)^2-(x^1)^2.
+\]
+Given $\phi(f)$ as a solution of the Klein-Gordon equation
+$\phi(\Box f)=0$, with $f$ a function of the said form, 
+the authors showed that this action can be implemented
+on the one-particle Hilbert space $\hil$ through $U_{\rho}$
+(\cite{HisLon:1982})
+\[
+U_{\rho}\phi(f)\Omega=\phi(f_{\rho})\Omega
+\]
+where $f_{\rho}(x)=-{(\abs{x}^2)}^{-3}f(\rho(x))$. Due
+to the conformal symmetry, $U_{\rho}$ extends to a unitary
+operator $\Gamma(U_{\rho})$ onto the Fock space $\mathcal{F}(\hil)$ 
+preserving the vacuum state whose action is given by
+$\Gamma(U_{\rho})\phi(f)\Gamma(U_{\rho})^*=
+\phi(f_{\rho})$ and gives rise to 
+an isometry between the Weyl algebra of the double cone
+and the wedge region $\Gamma(U_{\rho})\alg{\mathcal{O}}
+\Gamma(U_{\rho})^*=\alg{\rho(\mathcal{O})}=\alg{\wed}$.
+Since such a unitary preserves the vacuum state, it does
+also connect the modular objects corresponding to
+$\alg{\mathcal{O}}$ and $\alg{\wed}$ as
+\begin{align*}
+J_{\mathcal{O}}&=\Gamma(U_{\rho})\,J_{\wed}\,\Gamma(U_{\rho})^*\\
+\Delta^{it}_{\mathcal{O}}&=\Gamma(U_{\rho})\,\Delta^{it}_{\wed}\,
+\Gamma(U_{\rho})^*
+\end{align*}
+resulting in a geometric action of the modular group within
+the double cone given in terms of conformal transformations as
+\[
+x_{\pm}=\frac{1+x_{\pm}-\e^{-s}(1-x_{\pm})}
+{1+x_{\pm}+\e^{-s}(1-x_{\pm})}
+\]
+with $x_{\pm}$ the standard light-cone variables and 
+$s$ a real dilation parameter. 
+
+A similar geometric transformation can be introduced to 
+map the open double cone $\mathcal{O}'$ into the forward light cone
+$\mathcal{V}_+$ so that the algebras $\alg{\mathcal{O}'}$ and 
+$\alg{\mathcal{V}_+}$ are equivalent by means of the 
+unitary $\Gamma(T(1/2)U_{\rho}T(-1))$, where $T(\lambda)$
+implements time translations. The relations
+\begin{align*}
+J_{\mathcal{O}'}&=\Gamma\big(T(1/2)U_{\rho}T(-1)\big)
+\,J_{\mathcal{V}_+}\,\Gamma\big(T(1/2)U_{\rho}T(-1)\big)^*\\
+\Delta^{it}_{\mathcal{O}'}&=\Gamma\big(T(1/2)U_{\rho}T(-1)\big)
+\,\Delta^{it}_{\mathcal{V}_+}\,
+\Gamma\big(T(1/2)U_{\rho}T(-1)\big)^*
+\end{align*}
+reproducing a well known result of Buchholz \cite{Buchholz:1977} 
+stating that the modular operator and conjugation for the 
+forward light cone are respectively given by 
+dilations and CPT inversion mapping $\mathcal{V}_+$ onto
+the backward light cone $\mathcal{V}_-$, that is 
+$\Delta_{\mathcal{V}_+}^{it}=\Gamma(\delta(2\pi \lambda))$ and
+$J_{\mathcal{V}_+}=\Gamma(-CPT)$.
+
+\bigskip
+In case of massive theories the action of the modular group 
+is known only for wedge regions, again due to the 
+Bisognano-Wichmann property. Since massive theories are in
+general not conformally invariant this result cannot be transferred
+to double cones and similar regions, unlike the massless cases.
+It can be shown that the general action has to be non-local and
+presumably given in terms of pseudo-differential operators; 
+in particular if $\delta=\partial_t \Delta^{it}|_{t=0}$ is the 
+infinitesimal generator of the modular group, then 
+$\delta=\delta_{0} + \delta_m$, where $\delta_0$ is the standard
+massless generator and $\delta_m$ is expressed in terms of the
+action of a pseudo-differential operator depending on the mass.
+We refer the reader to \cite{Saf:2006, Yngv} for progresses
+in these directions.
+
+
+
+\section{Correlations functions in conformal field theory}
+\label{correlations functions}
+\noindent In this section we are going to have a closer look at
+the explicit form of correlations functions in
+conformal field theory. In particular we shall see
+that conformal invariance, especially in low dimensions,
+poses strong restrictions to the form of such 
+correlations functions and almost fixes them all, 
+up to some constants, in the case of two and three
+points functions.
+
+In two dimensions the conformal group reduces to the set
+of holomorphic and anti-holomorphic functions and in
+the special case of chiral theories we are allowed
+to look at each copy singularly. This means that, as 
+already pointed out, the conformal group decomposes
+into two copies, each one of them is generated by the
+Virasoro algebra \eqref{Vir}
+\[
+\comm{L_n,L_m}=(n-m)L_{n+m} + \frac{c}{12} m(m^2-1)\,
+\delta_{n+m}\bm{1}.
+\]
+A special class of fields is given by primary fields,
+as described in \ref{Primary fields}, which have the special
+property to transform as in \eqref{finite primary}
+\[
+\phi(z)={\left(\frac{dg}{dz}\right)}^h\phi'(g(z))
+\]
+under conformal transformations, $h$ being the conformal
+dimension of the fields. Here $z\mapsto g(z)$ is the 
+conformal mapping for either of the holomorphic or
+anti-holomorphic variables, one at a time. This corresponds
+to the finite exponential form of the infinitesimal 
+commutation relations between such fields and the generators
+of the Virasoro algebra 
+\[
+\comm{L_n,\phi(z)}=h(n+1)z^n\phi(z) + z^{n+1}\partial_z \phi(z).
+\]
+Correlations functions are defined as vacuum expectation values
+of products of fields (in the sense of tempered distribution)
+\[
+ w^n(x_1,\ldots,x_n)\coloneqq
+ \scal{\Omega,\phi_1(x_1)\ldots\phi_n(x_n)\Omega}
+\]
+and the idea is now that, if we require the above quantities to
+be invariant under conformal transformations, we may fix
+the form of such functions up to some degrees of freedom.
+In particular we have to impose that $w^n(x_1,\ldots,x_n)=
+w'^n(x'_1,\ldots,x'_n)$, namely
+\[
+\scal{\Omega,\phi_1(x_1)\ldots\phi_n(x_n)\Omega}=
+\scal{\Omega,\phi'_1(x'_1)\ldots\phi'_n(x'_n)\Omega}
+\]
+where, with obvious understanding of notations,
+$\phi'_k(x'_k)$ is the new field after a change under
+conformal transformations given by 
+$\phi'(x')=U\,\phi(x)\,U^*$.
+Exploiting such formula we find interesting results.
+
+\subsection{The two-point function}
+\label{the two-point function}
+Let us concentrate first on the two-point function 
+for primary fields
+$w^{(2)}(x_1,x_2)=\scal{\Omega,\phi_1(x_1)
+\phi_2(x_2)\Omega}$ and let
+us impose invariance under translations, dilations
+and special conformal transformations keeping in 
+mind that primary fields change as
+\begin{align*}
+i\comm{P,\phi(x)}&=\partial_x\phi(x)\\
+i\comm{D,\phi(x)}&=(x\partial_x+h)\phi(x)\\
+i\comm{K,\phi(x)}&=(x^2\partial_x+2hx)\phi(x)
+\end{align*}
+where we have seen in chapter \ref{The Moebius group} that $P,D,K$ can
+be expressed in terms of $L_0, L_{\pm 1}$.
+Invariance under translations requires
+\[
+\scal{\Omega,\comm{P,\phi_1(x_1)\phi_2(x_2)}\Omega}=0;
+\]
+using $\comm{A,BC}=B\comm{A,C}+\comm{A,B}C$ we are led to
+\begin{align*}
+0&=\scal{\Omega,\phi_1(x_1)\,\comm{P,\phi_2(x_2)}\Omega}+
+\scal{\Omega,\comm{P,\phi_1(x_1)}\,\phi_2(x_2)\Omega}\\
+&=(\partial_{x_1}+\partial_{x_2})w^{(2)}(x_1,x_2)\\
+\end{align*}
+and thus $w^{(2)}(x_1,x_2)$ depends only on the difference
+of the two variables $w^{(2)}(x_1,x_2)=w^{(2)}(x_1-x_2)$, 
+which is the standard form required by translations invariance.
+Along the same lines, for dilations invariance we have
+\begin{align*}
+0&=\scal{\Omega,\comm{D,\phi_1(x_1)\phi_2(x_2)}\Omega}\\
+&=(x_1\partial_{x_1}+h_1+x_2\partial_{x_2}+h_2)w^{(2)}(x_1,x_2)\\
+\end{align*}
+introducing the variable $x=x_1-x_2$, as we have seen 
+above, we obtain $(x\partial_x + h_1+h_2)w^{(2)}(x)=0$ 
+and thus
+\[
+\frac{1}{w^{(2)}(x)}\,\dd w^{(2)}(x)=-(h_1+h_2)\,\frac{1}{x}\,\dd x
+\]
+which integrates to 
+${w^{(2)}(x)}=c_{12}\,x^{-(h_1+h_2)}$;
+keep in mind that we want the correlations functions to
+diverge whenever the two points coincide, therefore for
+$x\to 0$. This implies that $h_1+h_2$ must be positive.
+Last, but not the least, we impose invariance under special
+conformal transformations
+\begin{align*}
+0&=\scal{\Omega,\comm{K,\phi_1(x_1)\phi_2(x_2)}\Omega}\\
+&=(x_1^2\partial_{x_1}+2h_1 x_1+x_2^2\partial_{x_2}+2h_2 x_2)
+w^{(2)}(x_1,x_2).\\
+\end{align*}
+To help the computation we can plug in the form
+${w^{(2)}(x)}=c_{12}\,x^{-(h_1+h_2)}$
+and work it out:
+\begin{align*}
+0&=\left(x_1^2 (-1)(h_1+h_2)(x)^{-1} + 2h_1 x_1+\right.
+\left. x_2^2 (h_1+h_2)(x)^{-1} + 2h_2 x_2\right){w^{(2)}(x)}\\
+&=\left((x)^{-1}(h_1+h_2)(x_2^2-x_1^2) + 2h_1 x_1 + 2h_2 x_2\right)
+{w^{(2)}(x)}\\
+&=\left(-(x_1+x_2)(h_1+h_2) + 2h_1 x_1 + 2h_2 x_2\right){w^{(2)}(x)}\\
+&=(h_1-h_2)(x_1-x_2){w^{(2)}(x)}
+\end{align*}
+interestingly enough then, the two fields are correlated only
+if the two scaling dimensions coincide, $h_1=h_2$. Of course,
+all the calculations must be intended in the sense of distribution,
+therefore for primary fields the two-point function takes the form 
+\[
+w^{(2)}(x_1-x_2)=\lim_{\varepsilon\to 0^+} 
+\left(\frac{c_{12}}{x_1-x_2-i\varepsilon}\right)^{2h}
+\]
+where the normalisation constant $c_{12}$ is the only parameter left free and
+can be calculated by imposing further requirements, as well
+as positivity of the scalar product in the Hilbert space
+(in the sense of operators) and spectrum conditions. It is
+straightforward now to derive back the expression of the
+two-point function for fermions and currents: substitution
+of $h=1/2$ and $h=1$ gives the results we have already 
+stated by performing explicit calculations on the fields 
+themselves.
+
+\subsection{The three-point function}
+Similar arguments can be undertaken for the three-point
+function too. Again, translations invariance states
+\[
+\scal{\Omega,\comm{P,\phi_1(x_1)\phi_2(x_2)\phi_3(x_3)}\Omega}
+=(\partial_{x_1}+\partial_{x_2}+\partial_{x_3})w^{(3)}(x_1,x_2,x_3)=0
+\]
+meaning that $w^{(3)}(x_1,x_2,x_3)$ must depend on the pairwise
+difference of the variables $w^{(3)}(x_1-x_2,x_1-x_3,x_2-x_3)$.
+Dilations invariance brings homogeneity
+\[
+w^{(3)}(x_1,x_2,x_3)=\frac{c_{123}}{(x_1-x_2)^a\cdot(x_1-x_3)^b
+\cdot(x_2-x_3)^c}
+\]
+and special conformal invariance fixes the exponents $a,b,c$
+to be $a=h_1+h_2-h_3$, $b=h_2+h_3-h_1$, $c=h_3+h_1-h_2$; thus
+fields of different scaling dimension may still have 
+non-vanishing three-point function.
+
+\bigskip
+Higher correlations functions might in principle be similarly
+derived, with the only difference that in this case 
+M\"obius invariance does not 
+give enough restrictions as in the case of two and three points
+functions. Nevertheless the idea is always to start with
+the $n$-point function $w^{(n)}(x_1,\ldots,x_n)$ and impose invariance under 
+a general change after conformal transformations; for each
+of the M\"obius generators we have, in principle:
+\[
+\scal{\Omega,\comm{L_n,\phi_1(x_1)\ldots\phi_n(x_n)}\Omega}=0
+\]
+and by multiple application of the Leibniz rule for
+commutators the above equation can be turned into
+a differential equation for the correlator as
+$\textrm{D}\,w^{(n)}(x_1,\ldots,x_n)=0$, where 
+$\textrm{D}$ is a differential operator, depending
+on case by case. Such differential equations are
+usually referred to as ``Ward identities'' and
+can be used to test concrete models, although, as
+we said, they do not restrict enough the form
+of the Wightman $n$-points functions.
+
+
+
+
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************

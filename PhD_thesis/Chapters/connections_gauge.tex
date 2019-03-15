@@ -1,0 +1,138 @@
+%*****************************************
+\section{Diffeomorphism covariance versus multi-locality}
+\label{connections with gauge}
+%*****************************************
+So far we have seen that there are essentially two 
+distinguished ways to distribute fields around the circle. The
+first one is by implementing diffeomorphisms 
+covariance, if the net is assumed to fulfill such
+property; so to speak, under a general change 
+$z\mapsto \mu(z)$ fields change accordingly as 
+$\phi'(\mu(z))=(\partial \mu/\partial z)^h\phi(\mu(z))$,
+where $h$ is the field scaling dimension. Unitary
+operators causing such displacement do exist and
+thus $\phi'(\mu(z))=\ad (U(\mu))(\phi(z))$. This
+concept has led \cite{LX:2004} to the introduction
+of the Longo-Xu map as isomorphism of algebras
+\eqref{L-X}. Because of the split property being involved, 
+the Longo-Xu map does not preserve the vacuum state,
+because correlations are explicitly broken into 
+product of states. This behaviour does not reflect 
+quantum field theory at all, whose 
+principal feature is that fields and observables 
+must be correlated anyway, affecting each other 
+according to the Einstein causality principle.
+
+\bigskip
+On the other hand, after investigation of modular 
+theory for fermions in disjoint intervals, we have 
+found that, however, an isomorphism of algebras 
+preserving the vacuum state does exist in the form 
+given by equation \eqref{map_beta_general}. 
+Albeit in principle the two concepts might seem 
+unrelated, they happen to
+be intimately connected through suitable gauge 
+transformations. We start showing a simple example 
+thereof and then we move to the general case.
+\begin{example}
+Let us take as diffeomorphisms the square root 
+map $z\mapsto \pm\sqrt{z}$. The action of the 
+corresponding Longo-Xu isomorphism 
+on the complex fermion looks like equation
+\eqref{LX_complex}
+\[
+\LX(\phi(z^2))=\frac{1}{2\sqrt{z}}
+\left(\psi(z)+\psi(-z)\right).
+\]
+We can compare this formula with \eqref{beta_complex}, which
+shows the same action under the map $\beta$, respectively:
+\[
+\beta(\phi(z^2))=\frac{1}{2}
+\left(\psi(z)+\psi(-z)\right).
+\]
+Remarkably we see that the two actions are related as 
+\[ 
+\LX(\phi(z^2))=(z^2)^{-1/4}\,
+\beta(\phi(z^2)),
+\]
+which can be rewritten as $\beta=\LX\circ \gamma$,
+where $\gamma\colon\mathcal{A}^2(\I)\to\mathcal{A}^2(\I)$
+acts on the complex fermion as $\gamma(\phi(z))=z^{1/4}
+\phi(z)$ and can be interpreted as a
+gauge transformation, in particular like pointlike 
+rotations $\rot(\varphi/4)$
+if $z=\e^{i\varphi}$.
+\end{example}
+This is not accidental, rather it is pretty general.
+Let us work for the sake of simplicity on the real line,
+making use of the uniformisation funcion $X(x)$ as variable
+at hand. Gauge transformations $\gamma\colon\alg{\I}\to\alg{\I}$
+preserving each subalgebra $\alg{\I}$ can be defined 
+by their action on $\mathcal{A}^N(\I)$ as
+\begin{equation}
+\label{gamma_gauge}
+\gamma(\psi_i)=\sum^N_{r=1}O(X)_{ir}\,\psi_r(X)
+\end{equation}
+with $O(X)$ being the mixing matrix appearing in the
+Casini-Huerta modular flow for disjoint intervals. 
+As such, $O(X)$ can be read as an $\textrm{SO}(N)$ 
+valued function and $\gamma$ takes fields at the point
+$X$ into combination of fields at the same point, with 
+pointlike dependent coefficient (which justifies the 
+name of gauge transformations). Choosing now the 
+funcion $X(x)$ as diffeomorphism to be implemented, 
+we can act with the Longo-Xu map upon
+\eqref{gamma_gauge} in order to have 
+\begin{align*}
+\LX\circ\gamma(\psi_i(X))&=\LX\Big(\sum^N_{r=1}O(X)_{ir}
+\psi_r(X)\Big)\\
+&=\sum^N_{r=1}O(X)_{ir}\sqrt{X_r^{-1}(X)'}
+\,\psi(X_r^{-1}(X))
+\end{align*}
+that is $\beta(\psi_i(X))$, however we choose $\psi_i$
+as element of the algebras, and thus 
+\begin{equation}
+\label{beta_versus_LX}
+\beta=\LX\circ\gamma.
+\end{equation}
+The vacuum preserving isomorphism $\beta$ is related to the 
+Longo-Xu map via choice of suitable gauge transformations,
+expressed by the orthogonal cocycle $O(X)$. Composition
+with such a map exactly \emph{undoes} the split property and 
+brings back the correlations among fields. In fact,
+although neither $\LX$ nor $O(X)$ preserve the 
+vacuum state by themselves, their joint action does,
+bringing back the exact form of $\beta$ as appearing
+in the modular flow for free fermions in disjoint intervals.
+We shall see later on, in the following chapters about 
+currents, that this is a general issue which will be
+present in the embedded models as well. In fact, 
+even though $\beta$ itself does not completely restrict 
+to the embedded subalgebras, its composition with $\gamma^{-1}$ 
+does, giving back the Longo-Xu map for currents and 
+stress-energy tensor in the context of doubled theories;
+however, concerning these topics, we refer the reader
+to forthcoming chapters 
+\ref{Currents models} and \ref{Embedding via Longo-Xu map}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************

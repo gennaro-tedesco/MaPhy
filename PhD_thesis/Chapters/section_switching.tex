@@ -1,0 +1,61 @@
+%*****************************************
+\section{A reverse picture}
+\label{}
+%*****************************************
+
+\noindent We have seen that the action of the modular group
+with respect to the vacuum state is geometric inside one
+interval (Bisognano-Wichmann property, \ref{BiWi}), 
+whilst it introduces a mixing among different intervals
+described by \cite*{CH:2009}. 
+Now we aim to construct a state whose modular group
+exactly switches these behaviours, namely whose action
+inside one interval is no more geometric, rather it
+introduces a mixing among the components described by 
+the same matrix as above.
+
+\bigskip
+Let us consider, on $\mathcal{A}^N(\I),\,\I\subset\R$, 
+the following gauge transformation $\gamma\colon 
+\mathcal{A}^N(\I)\to\mathcal{A}^N(\I)$
+\[
+\gamma(\psi_i(X))=\sum_{r=1}^n {O(X)}_{ir}\,\sqrt{{X_r^{-1}(X)}'}\ 
+\psi_r(X)
+\]
+with the function $X(x)$ as in \eqref{CHfunction} and the 
+matrix $O(X)$ exactly given as in \eqref{OonK}. Define the
+state $\varphi$ on $\mathcal{A}^N(\I)$ to be $\varphi
+\coloneqq \vac\circ{\gamma}^{-1}$; its modular group therefore reads
+$\sigma^t_{\varphi}= \gamma\circ\sigma^t_{\vac}\circ{\gamma}^{-1}$
+by verification of the \ac{KMS} condition. Explicitly, this gives
+\begin{align*}
+\sigma^t_{\varphi}(\psi_i(X))&=
+(\gamma\circ\sigma^t_{\vac}\circ{\gamma}^{-1})(\psi_i(X))\\
+&=(\gamma\circ\sigma^t_{\vac})
+\left(\sum_{r=1}^n{O(X)}_{ir}\,{\sqrt{{X_r^{-1}(X)}'}}\right)^{-1}\psi_r(X)\\
+\end{align*}
+therefore
+\begin{multline*}
+\sqrt{{X_r^{-1}(X)}'}\,\sigma^t_{\varphi}(\psi_i(X))=
+\gamma\left(\sum_{r=1}^n{O(X)}^T_{ir}\sqrt{\delta_t(X)'}\,
+\psi_r(\delta_t(X))\right)\\
+=\sum_{r,p=1}^n {O(X)}^T_{ir}\,\sqrt{\delta_t(X)'}\,
+{O(\delta_t(X))}_{rp}\, \sqrt{{X_p^{-1}(\delta_t(X))}'}\,
+\psi_p(\delta_t(X))
+\end{multline*}
+Since the matrix $O(X)$ satisfies $O(X)^T\,O(\delta_t(X))=
+O(t,X)$ we end up with
+\[
+\sqrt{{X_r^{-1}(X)}'}\,\sigma^t_{\varphi}(\psi_i(X))=
+\sum_{p=1}^n O(t,X)_{ip}\,\sqrt{{X_p^{-1}(\delta_t(X))}'}\,
+\sqrt{\delta_t(X)'}\,\psi_p(\delta_t(X))
+\]
+which presents the same mixing appearing in the vacuum modular
+flow on the union of $n$ disjoint intervals \cite*[eq (3.1)]{LMR:2009}.
+In the same paper the authors also show that a product state
+of the form $\varphi_E\coloneqq (\otimes_{k=1}^n \varphi_k)\circ
+\chi_E$ has modular group with geometric action within $n$ disjoint
+intervals. Therein $\chi_E$ is the isomorphism given by the split
+property and $\varphi_k$ are state given by $\varphi_k\coloneqq \vac\circ
+\ad U(\gamma_k)$, where $U(\gamma_k)$ implements diffeomorphisms
+$\gamma_k\colon z\to z^n$ on $\I_k$ (to be expanded).

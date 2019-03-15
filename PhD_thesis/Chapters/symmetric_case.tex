@@ -1,0 +1,255 @@
+%*****************************************
+\subsection{The symmetric case}
+\label{beta symmetric}
+%*****************************************
+We start with the symmetric case for $N=2$,
+namely $z^2\in\I$ and $z,-z\in\I_1,\I_2$ 
+respectively. A complex Fermi field $\phi(z^2),
+\phi^*(z^2)$ is localised in $\I$ and a real 
+Fermi field $\psi(z)$ in $\sqrt{\I}=\I_1\cup 
+\I_2$.
+\begin{proposition}[\cite{Rehren:2012wa}]
+Let $\phi$ and $\psi$ stand for the complex and real 
+fermion in their vacuum representation, as stated 
+above. The linear map 
+\begin{equation}
+\label{beta}
+\beta\colon\mathcal{A}^2(\I)
+\to\alg{\sqrt{I}}
+\end{equation}
+given by 
+\begin{align}
+\phi(z^2)&\mapsto\frac{1}{2}
+\left(\psi(z)+\psi(-z)\right)
+\label{beta_complex}\\[1ex]
+\phi^*(z^2)&\mapsto\frac{1}{2z}
+\left(\psi(z)-\psi(-z)\right)
+\end{align}
+for $z\in\s$, induces an isomorphism of $\textrm{CAR}$
+algebras preserving the vacuum state on the different 
+algebras: $\vac^{(1)}\circ\beta=\vac^{(2)}$. Note that 
+the map is well defined because the right hand sides
+are invariant under $z\mapsto -z$.
+\end{proposition}
+\begin{proof}
+We start showing the inverse of such a map: clearly, 
+summing up the two sides of the equations we obtain
+\begin{align*}
+2\,\psi(z)&=2\,\beta(\phi(z^2)) + 2z\,\beta(\phi^*(z^2))\\
+2\,\psi(-z)&=2\,\beta(\phi(z^2)) - 2z\,\beta(\phi^*(z^2))\\
+\end{align*}
+therefore the inverse relation reads
+\[
+\beta^{-1}\left(\psi(\pm z)\right)=\phi(z^2)\pm z\phi^*(z^2).
+\]
+The adjoint relation is immediate:
+\[
+\beta(\phi(z^2))^*=z^2\,\beta(\phi^*(z^2)),
+\]
+hence $\beta$ preserves the adjoints too.
+In terms of the two copies 
+$\phi(x)=\left(\psi_1(x)+i\psi_2(x)\right)/\sqrt{2}$
+the map $\beta$ can be written as
+\begin{align*}
+\psi_1(z^2)&\mapsto\frac{1}{2\sqrt{2}}\,\psi(z)
+\left(1+\frac{1}{z}\right)+\frac{1}{2\sqrt{2}}\,\psi(-z)
+\left(1-\frac{1}{z}\right)\\[1ex]
+\psi_2(z^2)&\mapsto\frac{1}{2\sqrt{2}}\,\psi(z)
+\left(1-\frac{1}{z}\right)+\frac{1}{2\sqrt{2}}\,\psi(-z)
+\left(1+\frac{1}{z}\right)\\
+\end{align*}
+with inverse given by
+\[
+\beta^{-1}\left(\psi(\pm z)\right)=\
+\psi_1(z^2)(1\pm z) +i\psi_2(z^2)(1\mp z).
+\]
+Now we turn to the vacuum preserving features. The 
+simplest proof proceeds by brute force plugging the 
+right hand side of \eqref{beta} into the two-point 
+function and evaluating the result:
+\begin{align*}
+\vac\circ\beta\left(\phi^*(z^2)\phi(w^2)\right)&=
+\vac\left(\beta(\phi^*(z^2))\beta(\phi(w^2))\right)\\
+&=\vac\left(\frac{1}{2z}(\psi(z)-\psi(-z))\right. \cdot
+\left.\frac{1}{2}(\psi(w)+\psi(-w))\right)
+\end{align*}
+this brings four contributions:
+\begin{multline*}
+\frac{1}{4z}\left(\vac(\psi(z)\psi(w))-\vac(\psi(-z)\psi(w))\right. \\
++\left. \vac(\psi(z)\psi(-w))-\vac(\psi(-z)\psi(-w))\right)
+\end{multline*}
+which can be summed up using the formula for the vacuum 
+two-point function for the real chiral Fermi field 
+\begin{align*}
+\vac\circ\beta\left(\phi^*(z^2)\phi(w^2)\right)&=
+\frac{1}{4z}\left( \frac{1}{z-w}-\frac{1}{-z-w}\right. 
++\left. \frac{1}{z+w}-\frac{1}{-z+w}\right)\\
+&=\frac{1}{4z}\,2\,\left(\frac{1}{z-w}+\frac{1}{z+w}\right)\\
+&=\frac{1}{2z}\cdot\frac{2z}{z^2-w^2}=\frac{1}{z^2-w^2}\\
+&=\vac\left(\phi^*(z^2)\phi(w^2)\right)
+\end{align*}
+as to be proven. By exploiting Wick theorem, this 
+equality extends to all $n$-points functions, since 
+these are just sums of products of two-point functions,
+see equation \eqref{wick}. As already pointed out, the 
+standard anti-commutation relations follow from this
+correlation function, therefore they remain preserved as
+well.
+
+\bigskip 
+Another proof proceeds by simply looking at Fourier modes. 
+In the vacuum representation, where we assume the fields are 
+evaluated, we have 
+\[
+ \phi(z^2)=\sum_{r\in\Z+1/2}\phi_r\,
+ {(z^2)}^{-r-1/2},\quad
+ \psi(z)=\sum_{r\in\Z+1/2}\psi_r\,
+ z^{-r-1/2}.
+\]
+A simple look at the right hand sides of \eqref{beta} 
+displays that, for example,
+\begin{align*}
+\beta\left(\phi(z^2)\right)&=\sum_{r\in\Z+1/2}\beta(\phi_r)\,
+ {(z^2)}^{-r-1/2}=
+\frac{1}{2}\left(\psi(z)+\psi(-z)\right)\\[1ex]
+&=\frac{1}{2}\sum_{r\in\Z+1/2}\phi_r\,z^{-r-1/2}
+\left(1+(-1)^{-r-1/2}\right) \\[1ex]
+&=\sum_{p\in\Z}\psi_{2p-1/2}{(z^2)}^{-p}=
+\sum_{r\in\Z+1/2}\psi_{2r+1/2}{(z^2)}^{-r-1/2}
+\end{align*}
+therefore the isomorphism appears as a relabelling 
+of the Fourier modes $\phi_r\mapsto\psi_{2r+1/2}$.
+Similarly for the adjoint field we have 
+$\phi^*_r\mapsto\psi_{2r-1/2}$; the variable $r$
+runs into $\Z+1/2$ for the vacuum representation.
+In terms of these Fourier modes the anti-commutation
+relations read
+\[
+\ant{\phi_r,\phi^*_s}=\ant{\psi_r,\psi_s}=\delta_{r+s,0}
+\]
+and a simple look shows that
+\[
+\ant*{\beta(\phi_r),\beta(\phi^*_s)}=
+\ant{\psi_{2r+1/2},\psi_{2s-1/2}}=\delta_{2r+1/2+2s-1/2,0}
+=\delta_{r+s,0};
+\]
+the vacuum state is the only state which is annihilated 
+by all $\psi_r, r>0$ and by all $\phi_r,\phi_r^*, r>0$,
+respectively. Of course the relabelling does not 
+change these conditions and ergo the vacuum is still sent 
+into itself. The adjoint relations in terms of modes are
+$\phi_r^*=(\phi_{-r})^*$ and we can easily see that, by 
+making use of $\beta(\phi(z^2))^*=z^2\,\beta(\phi^*(z^2))$
+multiplication by $z^2$ becomes a shift by $-1$ in terms 
+of modes, and this is exactly $2r+1/2-1=2r-1/2$, indeed 
+what happens to $\phi^*_r$ under the action of $\beta$.
+
+\bigskip 
+We have thus shown that $\beta$ is an isomorphism that 
+preserves the vacuum state, both in the ``local'' setting
+(by looking at the two-point function) and from the 
+algebraic perspective of anti-commutators.
+This is due to change of localisation from the point 
+$z^2$ to the points $z,-z$ with suitable coefficients that
+must adjust the form of two-point function eventually. We shall 
+see later on that such coefficients will acquire a more
+general form described by the Casini-Huerta function 
+\eqref{CHfunction} in the context of modular theory and this 
+will come as a very special feature; with any other function 
+$\I_k\to \I$ the statement is no more true. The 
+reduction to special symmetric case brings back the form 
+we have just analysed. However, it is 
+interesting to show what the map $\beta$ becomes on the 
+real line, instead. Since $\R=C^{-1}(\s\setminus\set{-1})$ 
+then 
+\[
+\beta^{\R}=C^{-1}\circ\beta^{\s}\circ C.
+\]
+The square root assignment $z^2\mapsto\sqrt{z^2}=\pm z$
+becomes, after Cayley transform, 
+$C^{-1}(z^2)=q(x)=2x/(1-x^2)$, whose two 
+``square roots'' are the points $x=C^{-1}(z)$ and
+$-1/x=C^{-1}(-z)$.
+We have that, on the real line, $\beta^{\R}$ is
+\begin{align*}
+\phi(q(x))&\mapsto\frac{1}{q(x)}\cdot\frac{1}{1-ix}
+\Big(x\psi(x)+i\psi(-1/x)\Big)\\
+\phi^*(q(x))&\mapsto\frac{1}{q(x)}\cdot\frac{1}{1+ix}
+\Big(x\psi(x)-i\psi(-1/x)\Big)
+\end{align*}
+and the inverse relation is simply
+\[
+\beta^{-1}(\psi(x))=\frac{1-ix}{1-x^2}\,\phi(q(x)) +
+\frac{1+ix}{1-x^2}\,\phi^*(q(x)).
+\]
+One might still ask to show why the vacuum correlation 
+function is preserved on the real line too; this can be
+easily proven by brute force, though we prefer to show a
+more elegant solution as follows: the vacuum states on the 
+real line and on the circle are related via $\vac^{\R}=
+\vac^{\s}\circ C$:
+\begin{align*}
+\vac^{\R}\circ\beta^{\R}&=\vac^{\s}\circ C\circ\beta^{\R}\\
+&=\vac^{\s}\circ C\circ C^{-1}\circ\beta^{\s}\circ C\\
+&=\vac^{\s}\circ\beta^{\s}\circ C\\
+&=\vac^{\s}\circ C=\vac^{\R}
+\end{align*}
+as to be proven. \qedhere
+\end{proof}
+With a little care the result we have just presented can be 
+straightforwardly generalised to the case of symmetric $N$-intervals. 
+Before we do so, we notice that
+a closer look to $\beta$ brings the following inspection to 
+the coefficients appearing on the right hand sides:
+\begin{align*}
+\phi(z^2)&\mapsto \frac{z^0}{2}
+\left(\psi(\omega^0 z)+\psi(\omega^1 z)\right)\\
+\phi^*(z^2)&\mapsto \frac{z^{-1}}{2}
+\left(\psi(\omega^0 z)-\psi(\omega^1 z)\right)
+\end{align*}
+where we have introduced the roots of the unity $\omega^{0,1}=\pm 1$
+as in the fashion previously described. Even more compact
+is the form:
+\begin{equation*}
+\phi^{(k)}(z^2)\mapsto\frac{z^{1-k}}{N}\,\sum_{j=0}^{N-1}
+\omega^{(1-k)j}\,\psi(\omega^j z)\qquad k=1,2.
+\end{equation*}
+Let us now take any symmetric $N$-interval with arbitrary $N$, 
+exploiting the form of $\sqrt[N]{z^N}$ with $N$
+solutions $z_1,\ldots,z_N$ such that $z_k=\omega^k z\in\I_k$.
+Similarly we choose $N$ real Fermi fields lying in $\alg{\I}$ 
+which we can pairwise combine into $N/2$ complex Fermi fields:
+in formulae we assign $\psi^{(1)}(z^N),\ldots,\psi^{(N)}(z^N)$
+such that ${{\phi^{(k)}}^*(z^N)}=\phi^{(N+1-k)}(z^N)$.
+Then we just have to propose the same ansatz 
+for a symmetric $N$-interval $\beta\colon
+\mathcal{A}^N(\I)\to\alg{\sqrt[N]{\I}}$
+\begin{equation}
+\label{beta_any}
+\phi^{(k)}(z^2)\mapsto\frac{z^{1-k}}{N}\,\sum_{j=0}^{N-1}
+\omega^{(1-k)j}\,\psi(\omega^j z)\qquad k=1,\ldots,N.
+\end{equation}
+In terms of the initial fields and in terms of Fourier 
+modes this becomes 
+\[
+\psi^{(k)}(z^N)\mapsto\sum_{r\in\Z+1/2}\psi_{1/2-k + (r+1/2)N}\,
+{(z^N)}^{-r-1/2}
+\]
+which corresponds in turn to a relabelling 
+of generators $\psi^{(k)}_r\mapsto\psi_{1/2-k + (r+1/2)N}$.
+That this is still a vacuum preserving isomorphism can be
+again verified by noting that the renumbering of generators 
+does not affect the vacuum, or by direct computation of the 
+two-point functions, along the same lines as before.
+
+
+
+
+
+
+
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************

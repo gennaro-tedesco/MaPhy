@@ -1,0 +1,83 @@
+%*****************************************
+\subsection{The Ramond sector}
+\label{The Ramond sector}
+%*****************************************
+The real free Fermi field possesses another faithful 
+representation of positive energy, the Ramond 
+sector, as we have seen in \ref{repn of Fermi on the circle}, 
+induced by the \ac{GNS} construction from the 
+two-point function \eqref{Ramond}. Fields evaluated
+in the Ramond sector will be expressed as 
+$\ram{z}$. Obviously, as previously stated, their 
+representation on the circle in terms of Fourier modes
+has a cut at $z=-1$ and extends anti-periodically on the 
+whole $\s$:
+\[
+\ram{z}=\sum_{n\in\Z}{\psi_{\textrm{R},}}_n \,z^{-n-1/2}.
+\]
+In principle one could just introduce a new field obtained 
+by multiplying the actual Ramond field by $\sqrt{z}$, 
+in order to ``cancel'' the cut: $\ram{z}\mapsto 
+\sqrt{z}\cdot\ram{z}$ and so 
+\[
+\ram{z}=\sum_{n\in\Z}{\psi_{\textrm{R},}}_n \,z^{-n}
+\]
+with two-point function
+\[
+\omega_{\textrm{R}}(\ram{z}\ram{w})=
+\frac{1}{2}\cdot\frac{z+w}{z-w}.
+\]
+Indeed, if we do so, the transformation law for the new 
+defined conformal field under diffeomorphisms 
+$z\mapsto \gamma(z)$ changes by an extra factor of $\sqrt{z/\gamma(z)}$.
+Commutation relations between modes have the form 
+$\ant{{\psi_{\textrm{R},}}_n,{\psi_{\textrm{R},}}_m}
+=\delta_{n+m,0}$. In particular, the zero mode squares
+to one: $2{\psi^2_{\textrm{R},}}_0=\bm{1}$.
+
+\bigskip 
+\begin{proposition}
+A similar isomorphism like in \eqref{beta} can be 
+introduced as 
+\begin{equation}
+\label{beta_ramond}
+\beta_{\textrm{R}}\colon\pi_0(\alg{\I})\otimes^t 
+\pi_{\textrm{R}}(\alg{\I})\to
+\pi_{\textrm{R}}\left(\alg{\sqrt{I}}\right)
+\end{equation}
+taking the tensor product of fields in the vacuum and in 
+the Ramond sector and defining
+\begin{align}
+\ram{z^2}\otimes^t\bm{1}_0&\mapsto\frac{1}{2}
+\Big(\ram{z}+\ram{-z}\Big)\\[1ex]
+\bm{1}_{\textrm{R}}\otimes^t\pi_0(\psi(z^2))&\mapsto\frac{1}{2z}
+\Big(\ram{z}-\ram{-z}\Big).
+\end{align}
+This isomorphism still preserves the vacuum state in the 
+form $\omega_{\textrm{R}}\circ\beta_{\textrm{R}}=
+\omega_{\textrm{R}}\otimes\vac$.
+\end{proposition}
+\begin{proof}
+We look again at the Fourier modes and the right hand 
+sides present a relabelling ${\psi_{\textrm{R},}}_n\mapsto 
+{\psi_{\textrm{R},}}_{2n}$ and ${\psi_{\textrm{R},}}_n\mapsto 
+{\psi_{\textrm{R},}}_{2n+1}$, respectively;
+this ensures that the correct commutation relations 
+and two-point function directly follow.\qedhere
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************
+%*****************************************
