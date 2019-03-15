@@ -1,0 +1,66 @@
+% article example for classicthesis.sty
+\documentclass[10pt,a4paper]{article} % KOMA-Script article scrartcl
+\usepackage{lipsum}
+\usepackage{url}
+\usepackage[nochapters]{classicthesis} % nochapters
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,array,mathrsfs,amscd,mathtools}
+\usepackage{booktabs}
+\usepackage{braket}
+
+% Example environments ---------------------------------------------------------
+\RequirePackage{fancyvrb}
+\RequirePackage{alltt}
+
+\DefineVerbatimEnvironment{code}{Verbatim}{}
+\renewenvironment{code*}{\begin{alltt}}{\end{alltt}}
+
+% some definitions
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} % use also the *-version
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert} % use also the *-version
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\p}[2]{p(D_{#1}\vartriangleright D_{#2})}
+\newcommand{\blank}{(\;{\cdot}\;)}
+
+
+% theorems and definitions
+\newtheorem{example}{Example}
+\newtheorem{definition}{Definition}
+
+
+\begin{document}
+    \pagestyle{plain}
+    \title{\rmfamily\normalfont\spacedallcaps{Non-transitive Set Of Dice With 
+    Rdice}}
+    \author{\spacedlowsmallcaps{Gennaro Tedesco}}
+    \date{} % no date
+
+    \maketitle
+    
+    \abstract{
+    \noindent We present a simple construction of non-transitive set
+    of dice in some particular cases, deriving a general formula for 
+    the corresponding non-transitive probabilities. In particular 
+    we introduce the concept of fully perfect non-transitive set and
+    show that non-transitive constructions always exist.
+    
+    Moreover, we make use of the \texttt{R} package \texttt{Rdice} 
+    (developed by the author) to show how constructions can be iteratively 
+    found, provide several example for different cases.
+    }
+    
+    \tableofcontents
+    
+    \input{../chapters/preliminaries}
+    \input{../chapters/construction}
+    \input{../chapters/maximal}
+
+    % bibliography
+    \nocite{*}
+    \addtocontents{toc}{\protect\vspace{\beforebibskip}}
+    \addcontentsline{toc}{section}{\refname}
+    \bibliographystyle{plain}
+    \bibliography{../efron}
+\end{document}

@@ -1,0 +1,45 @@
+\section{Preliminaries}
+Let $D_1,\ldots,D_{Z}$ be $Z$ finite sets, 
+where $D_k=\set{d_k^1\leq\ldots \leq d_k^N}$, $k=1,\ldots,Z$.
+Should the elements of such sets be natural numbers, we would then refer
+to the collection of $D_1,\ldots,D_{Z}$ as to a set of dice, 
+whose cardinalities $\abs{D_k}$ denote the number of faces thereof. 
+As to do so, picking a random element $d_k^P$ will be the equivalent
+of rolling the $k^{\textrm{th}}$ die on its $P^{\textrm{th}}$ 
+face with outcome $d_k^P$. A game of two dice $(I,J)$ is the cartesian product $D_I\times D_J$. Likewise, a game of $Z$ dice is the pairwise union of all the
+possible $\binom{Z}{2}$ games of two dice each, with cardinality $\binom{Z}{2}\cdot N^Z$.
+
+\bigskip
+Let us henceforth consider a set of $Z$ dice. Without loss of generality we may
+assume $N$ to be even (though the odd case works along the same lines). 
+For each pair of dice $(D_I,D_J)$ let 
+$M_{IJ}\coloneqq \abs{\set{(i,j)\mid d_I^i>d_J^j}}$. The die $D_I$ is said
+to win against the die $D_J$ (denoted as $D_J\vartriangleright D_J$)    
+whenever $M_{IJ}>N/2$, otherwise the two dice are
+said to tie. Replacing $I\to J$ exhausts the one more remaining case. In a nutshell,
+the former die wins if it rolls higher than the latter more than a half times; in particular, counting all the possible outcomes, the probability of such to be achieved is given by the overall possible combinations 
+\[
+\p{I}{J}=\frac{M_{IJ}}{N^2}
+\]
+\begin{example}
+Given two three-sided dice as 
+\begin{align*}
+D_1&=\set{1,5,6} \\
+D_2&=\set{2,3,4} 
+\end{align*}
+the former dice wins against the latter $M_{12}=6$ times,
+hence with $\p{1}{2}=2/3$.
+\end{example}
+\begin{definition}
+A set of $Z$ $N$-sided dice is said to be fully Efron's of order $(Z,N)$ 
+if the cyclicity condition
+\[
+D_1\vartriangleright D_2\vartriangleright \ldots \vartriangleright
+D_Z\vartriangleright D_1
+\]
+holds with $\p{I-1}{I}=\p{I}{I+1}, \quad I=2,\ldots,Z-1$. Should the 
+mutual winning probabilities be different from one other, such set is 
+then said to be partially Efron's. Also, a fully Efron's set of dice
+of order $(Z,N)$ is said to be perfect if the dice entries exhaust
+all the natural numbers $\set{1,\ldots,ZN}$.
+\end{definition}

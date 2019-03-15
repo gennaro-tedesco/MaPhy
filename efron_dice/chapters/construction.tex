@@ -1,0 +1,188 @@
+
+\section{Construction of fully perfect Efron's dice}\label{fullyPerfect}
+The simplest case $Z=N$ provides a standard construction of
+fully perfect Efron's dice, as we shall show by iteration. 
+For $N=2$ the dice always tie, therefore we start with $N=3$.
+As it will be later on clarified, a standard constuction may proceed
+by cyclicity as follows: we pick a different starting die for each
+face and fill the values up incrementing each face by $1$ upwards.
+\begin{example}[Three three-sided perfect Efron's dice] 
+The following choice 
+\begin{align*}
+D_1&=\set{\odot, \blank, \blank} \\
+D_2&=\set{\blank, \blank, \odot} \\
+D_3&=\set{\blank, \odot, \blank} 
+\end{align*}
+allows
+\begin{align*}
+D_1&=\set{1,6,8} \\
+D_2&=\set{3,5,7} \\
+D_3&=\set{2,4,9} 
+\end{align*}
+\end{example}
+with winning probability $\p{I}{I+1}=5/9$. It is easy to see
+that any other choice would lead to the same result.
+\begin{example}[Four four-sided perfect Efron's dice] 
+The following choice 
+\begin{align*}
+D_1&=\set{\odot, \blank, \blank, \blank} \\
+D_2&=\set{\blank, \blank, \odot, \blank} \\
+D_3&=\set{\blank, \odot, \blank, \blank} \\
+D_4&=\set{\blank, \blank, \blank, \odot}
+\end{align*}
+allows
+\begin{align*}
+D_1&=\set{1, 7, 10, 16} \\
+D_2&=\set{4, 6, 9, 15} \\
+D_3&=\set{3, 5, 12, 14} \\
+D_4&=\set{2, 8, 11, 13}
+\end{align*}
+with winning probability $\p{I}{I+1}=9/16$.
+\end{example}
+\begin{example}[Five five-sided perfect Efron's dice] 
+Along the same lines
+\begin{align*}
+D_1&=\set{1, 7, 13, 18, 25} \\
+D_2&=\set{5, 6, 12, 19, 24} \\
+D_3&=\set{4, 10, 11, 20, 23} \\
+D_4&=\set{3, 9, 15, 16, 22}\\
+D_5&=\set{2, 8, 14, 17, 21}
+\end{align*}
+with winning probability $\p{I}{I+1}=14/25, I = 3,4$ and 
+$\p{I}{I+1}=13/25$ elsewise.
+\end{example}
+\begin{example}[Six six-sided perfect Efron's dice] 
+Also 
+\begin{align*}
+D_1&=\set{1, 9, 14, 24, 28, 35} \\
+D_2&=\set{6, 8, 13, 23, 27, 34} \\
+D_3&=\set{5, 7, 18, 22, 26, 33} \\
+D_4&=\set{4, 12, 17, 21, 25, 32} \\
+D_5&=\set{3, 11, 16, 20, 30, 31}\\
+D_6&=\set{2, 10, 15, 19, 29, 36}
+\end{align*}
+with winning probability $\p{I}{I+1}=20/36=5/9$.
+\end{example}
+With no need to go any further, the probability path is 
+easy to recognise. In fact, for each $N$ we have at most
+$N(N+1)/2 -1$ mutual winning combinations, giving rise to 
+\[
+\left.\p{I}{I+1}\right|_{\textrm{max}}=\frac{N(N+1)/2 -1}{N^2}=\frac{1}{2}+\frac{1}{2N}-\frac{1}{N^2}
+\]
+which decreases monotonously to $1/2$ as $N\to\infty$. The maximal winning
+probability is obtained for $N=4$.
+
+\bigskip
+The package \texttt{Rdice}\footnote{\url{https://cran.r-project.org/web/packages/Rdice/index.html}} provides the function \texttt{is.nonTransitive}
+to check whether a given set of dice is non-transitive; as an 
+example we can prove if on the above $N=5$ fully Efron's set 
+as follows:
+
+\begin{code}
+fullyPerfectFive <- data.frame(
+	  die1 = c(1,7,13,18,25),
+	  die2 = c(5,6,12,19,24),
+	  die3 = c(4,10,11,20,23),
+	  die4 = c(3,9,15,16,22),
+	  die5 = c(2,8,14,17,21)
+	)
+	
+> is.nonTransitive(fullyPerfectFive)
+[1] TRUE
+\end{code}
+
+
+\subsection{The case $Z< N$: minimal winning probabilities}
+We will now look at the case $Z<N$; in particular we shall
+try to generate non-transitive set of dice with \emph{minimal}
+winning probability.
+
+\bigskip
+It is straightforward to see that once we fix the number of 
+dice $Z$, the minimal winning probabilities one can achieve
+are given by
+\begin{equation}
+\left. \tilde{p}(N) \equiv p(N)\right|_{\textrm{min}} = 
+	\begin{cases}
+		\dfrac{\dfrac{N^2}{2}+1}{N^2},\quad N\textrm{ even}\\[2em]
+		\dfrac{\dfrac{N^2-1}{2}+1}{N^2},\quad N\textrm{ odd}.
+	\end{cases}\label{minimalProb}
+\end{equation}
+In particular, the minimal probability of any given odd integer $N$
+is always smaller than the one achieved by its next even integer, 
+namely one has $\tilde{p}(2K-1)<\tilde{p}(2K),\, K\in\N$. As such,
+for the minimal probability examples we will only be looking at 
+the case of $N$ odd.
+
+\bigskip 
+The package \texttt{}{Rdice} provides the function \texttt{nonTransitive.generator},
+that generates a random set of non-transitive dice with given 
+probability, once one specifies conditions on the total number of
+faces and maximum integer value allowed for any thereof. For the sake 
+of simplicity we can start looking at the case of $Z=3$ and 
+vary $N$ in order to minimise the winning probability according 
+to \eqref{minimalProb}. For $N=5$ (we look at odd integers only, as specified before)
+one has $\tilde{p} = 13/25$: with \texttt{nonTransitive.generator(dice = 3, 
+faces = 5, max\_value = 6, prob = 13/25)}
+
+\begin{code}
+# set prob = 13/25
+is.nonTransitive(
+	data.frame(
+	die1 = c(0,2,6,1,6),
+	die2 = c(5,4,0,1,4),
+	die3 = c(2,4,2,3,3)
+	), 
+prob = 13/25
+)	
+[1] TRUE
+\end{code}
+
+Choosing different values for $N$ generates non-transitive sets with
+smaller winning probabilities, as $N$ increases, due to the fact that 
+\eqref{minimalProb} decreseas monotonously for $N\to\infty$; with $N=13$ faces 
+and using the function 
+\texttt{nonTransitive.generator(dice = 3, faces = 13, max\_value = 20)}
+we find the smallest possible winning probability for a non-transitive 
+set of $Z=3$ dice to be given by:
+\begin{code}
+is.nonTransitive(
+	data.frame(
+	die1 = c(5,8,11,6,6,8,7,18,5,4,16,18,16),
+	die2 = c(3,11,0,4,17,15,0,13,2,14,17,11,19),
+	die3 = c(16,0,8,9,4,9,11,17,12,12,9,1,18)
+	),
+)	
+[1] TRUE
+\end{code}
+where the second die beats the third with $\tilde{p}^*=84/169 = 0.5029586$.
+The other combinations, however, beat each other with $p>\tilde{p}^*$.
+For a set of $Z=4$ we have produced the following results: $N=7$-faced
+dice 
+\begin{code}
+is.nonTransitive(
+	data.frame(
+	die1 = c(3,6,8,3,9,0,2),
+	die2 = c(8,9,2,1,1,8,1),
+	die3 = c(6,5,6,0,6,4,7),
+	die4 = c(4,0,0,4,10,9,4)
+	),
+)	
+[1] TRUE
+\end{code}
+with the first dice realising a non-transivitive winning 
+probability of $25/49$. For $N=8$ we reach the least possible
+non-transitive winning probability, namely, due to ties,
+\begin{code}
+is.nonTransitive(
+	data.frame(
+	die1 = c(5,5,7,10,4,4,5,1),
+	die2 = c(10,2,2,5,6,2,6,3),
+	die3 = c(0,1,9,1,0,10,10,9),
+	die4 = c(6,7,0,7,0,7,5,6)
+	),
+)
+[1] TRUE
+\end{code}
+presents the first and the third dice winning the 
+corresponding next one with $p=1/2$.
