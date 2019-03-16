@@ -1,0 +1,79 @@
+%************************************************
+\chapter{Date and time formats: lubridate}\label{sec: time}
+%************************************************
+The function \texttt{as.Date} converts the most
+date formats given to \emph{input} them 
+into the rules of the ISO-8601 
+international standard, which expresses the dates
+as year-month-day. The format to be converted 
+must correspond to the introduced date format:
+\begin{verbatim}
+date1 <- as.Date("19/02/87", format = "%d/%m/%y")
+date2 <- as.Date("04-06-15", format = "%d-%m-%y")
+
+R: date1
+[1] "1987-02-19"
+
+R: date1 > date2
+[1] FALSE
+
+R: year(date1)
+[1] 1987
+
+R: week(date1)
+[1] 8
+\end{verbatim}
+
+Different placeholders after the percentage sign $\%$
+correspond to different date formats. A full list is
+available here\footnote{
+\url{https://stat.ethz.ch/R-manual/R-patched/library/base/html/strptime.html}}.
+Also, the function \texttt{strptime} converts between character 
+representations and objects obigf classes "POSIXlt" 
+and "POSIXct" representing calendar dates and times;
+consequently, it is used to \emph{output} a given date in a 
+different desired time format or representation.
+\medskip 
+The functions \texttt{as.POSIXct} and \texttt{as.POSIXlt}
+give representation in the central (local, respectively)
+time stamp format as
+\begin{verbatim}
+R: as.POSIXct(Sys.Date())
+[1] "2015-10-17 02:00:00 CEST"
+
+R: as.POSIXlt(Sys.Date())
+[1] "2015-10-17 UTC" 
+\end{verbatim}
+\bigskip
+
+The package \texttt{lubridate} simplifies the date and
+time arithmetics as
+\begin{verbatim}
+install.package(lubridate)
+library(lubridate)
+
+R: date1  + weeks(5)
+[1] "1987-03-26"
+
+R: date1 - years(2)
+[1] "1985-02-19"
+\end{verbatim}
+Also notice the additional functions giving back
+precise information on the weekday and position in
+the year as \texttt{ymd\_hms} or 
+\begin{verbatim}
+R: wday(Sys.Date())
+[1] 7
+
+R: wday(Sys.Date(), label = TRUE)
+[1] Sat 
+\end{verbatim}
+and the function \texttt{isoweek}
+\begin{verbatim}
+date1 <- as.Date("2014-12-31")
+
+R: isoweek(date1)
+[1] 1
+R: week(date1)
+[1] 53
+\end{verbatim}

@@ -1,0 +1,400 @@
+%************************************************
+\chapter{The \pkgname{data.table} package}\label{sec: datatable}
+%************************************************
+\texttt{install.packages(`data.table')}\\
+\texttt{library(`data.table')}
+\bigskip 
+
+A \texttt{data.table} is a \df plus
+additional features that allow to strongly simplify
+a large set of operations on data as subsetting 
+according to constraints, grouping by specific
+categories, behaviours and functions as well as
+easy joins between them based on different 
+common keys and values. As such, we recommend as
+best practice to always transform any set of data
+into such format first and then start performing
+anything, as they are the most memory efficient.
+\bigskip 
+
+A \texttt{data.table} does not have row numbers
+because they are deprecated, as joins and subsets
+must occur on keys and common values insted.
+As such, one assigns:
+\begin{verbatim}
+iris <- data.table(iris)
+R: key(iris)
+NULL
+
+R: setkey(iris, Species)
+R: key(iris)
+[1] "Species"
+
+R: dim(iris)
+[1] 150   5
+\end{verbatim}
+Multiple keys can be set and the data table 
+will be sorted accordingly (also refer 
+here\footnote{ 
+\url{http://stackoverflow.com/a/20057411/5017267}
+}). For instance:
+\begin{verbatim}
+R: setkey(iris, Species, Sepal.Length) 
+
+     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+  1:          4.3         3.0          1.1         0.1    setosa
+  2:          4.4         2.9          1.4         0.2    setosa
+  3:          4.4         3.0          1.3         0.2    setosa
+  4:          4.4         3.2          1.3         0.2    setosa
+  5:          4.5         2.3          1.3         0.3    setosa
+\end{verbatim}
+If we want the opposite (descending) order
+\begin{verbatim}
+R: setorder(iris, Species, -Sepal.Length)
+
+     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+  1:          5.8         4.0          1.2         0.2    setosa
+  2:          5.7         4.4          1.5         0.4    setosa
+  3:          5.7         3.8          1.7         0.3    setosa
+  4:          5.5         4.2          1.4         0.2    setosa
+  5:          5.5         3.5          1.3         0.2    setosa
+\end{verbatim}
+Also note:
+\begin{verbatim}
+R: names(iris)
+[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" 
+	"Petal.Width"  "Species"
+
+R: setnames(iris, c("Sepal.Length","Sepal.Width"), 
+		  c("sep_length", "sep_width"))
+R: names(iris)
+[1] "sep_length"   "sep_width"    "Petal.Length" 
+		"Petal.Width"  "Species" 
+\end{verbatim}
+
+\section{Subsetting a data table upon constraints}
+The general syntax form for a data table is 
+\texttt{dt[i,j, by = k]}, meaning to subset the rows using 
+\texttt{i}, then apply \texttt{j} as a function grouped by
+\texttt{k}. The syntax is totally equivalent to the 
+standard \texttt{SQL}, with \texttt{i,j} replacing 
+\texttt{where} and \texttt{select} clauses, respectively.
+Any formal expression or function can be used 
+as \texttt{j}.
+\bigskip 
+
+Columns in a data table can be accessed by name 
+or by position reference: the two methods below are
+indeed equivalent in the result (notice 
+\texttt{with = FALSE} in the latter)
+\begin{verbatim}
+R: iris[, .(Species, Petal.Width, Petal.Length)]
+R: iris[, c(5,4,3), with = FALSE]
+
+       Species Petal.Width Petal.Length
+  1:    setosa         0.2          1.4
+  2:    setosa         0.2          1.4
+  3:    setosa         0.2          1.3
+  4:    setosa         0.2          1.5
+  5:    setosa         0.2          1.4 
+\end{verbatim}
+\bigskip 
+
+Equivalently, new columns can be defined and added
+with
+\begin{verbatim}
+R: iris[, .(new_value = Sepal.Length/Sepal.Width, Species)]
+
+     new_value   Species
+  1:  1.457143    setosa
+  2:  1.633333    setosa
+  3:  1.468750    setosa
+  4:  1.483871    setosa
+  5:  1.388889    setosa
+\end{verbatim}
+and can be deleted as
+\texttt{iris[, c(`Petal.Width',`Petal.Length') := NULL]}.
+\bigskip
+
+Rows can be subset according to constraints:
+\begin{verbatim}
+subset(iris, 
+       Species == 'virginica'
+       & (Petal.Width > 2.3 | Sepal.Width < 3)) 
+       
+subset(iris,
+       Species %in% c(`virginica',`setosa'))
+\end{verbatim}
+The \texttt{not in} operator in \texttt{R} is obtained
+by negating the variable instead of negating 
+the set it belongs to, i. e. 
+\texttt{subset(iris,
+      !Species \%in\% c(`virginica',`setosa'))}
+gives the subset of variable whose Species are neither 
+\emph{virginica} nor \emph{setosa}. The above are 
+equivalent to directly impose the subset 
+on the rows as
+\begin{verbatim}
+R: iris[Species == `virginica']
+R: iris[Species %in% c(`virginica',`setosa')]
+R: iris[!Species %in% c(`virginica',`setosa')]
+\end{verbatim}
+\bigskip 
+
+The \texttt{.I} operator shows the row number in 
+correspondence of a matching constraint, should we 
+want the data to be grouped by some other variables.
+For example
+\begin{verbatim}
+R: iris[, .I[Petal.Length = max(Petal.Length)], 
+		by = Species]
+
+      Species  V1
+1:     setosa   1
+2: versicolor  55
+3:  virginica 106
+\end{verbatim}
+The variable \texttt{V1} contains the actual row number 
+at the match, which in turnI can be plugged in the data 
+table again, by reference, to have back the entire rows 
+in correspondece thereof 
+\begin{verbatim}
+R: iris[iris[, .I[Petal.Length = max(Petal.Length)], 
+		by = Species]$V1]
+
+   Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+1:          5.1         3.5          1.4         0.2     setosa
+2:          6.5         2.8          4.6         1.5 versicolor
+3:          7.6         3.0          6.6         2.1  virginica
+\end{verbatim}
+
+Simple frequencies counts per group can be obtained 
+via the \texttt{.N} operator.
+\begin{verbatim}
+R: iris[, .N ,by = Species]
+
+      Species  N
+1:     setosa 50
+2: versicolor 50
+3:  virginica 50
+\end{verbatim}
+The \texttt{.SD} operator creates a data table whose 
+values are the original values except the variables 
+grouped by. Such new data table can be accessed on the 
+fly to perform operations upon:
+\begin{verbatim}
+R: iris[, lapply(.SD, sd), by = Species]
+
+      Species Sepal.Length Sepal.Width Petal.Length Petal.Width
+1:     setosa    0.3524897   0.3790644    0.1736640   0.1053856
+2: versicolor    0.5161711   0.3137983    0.4699110   0.1977527
+3:  virginica    0.6358796   0.3224966    0.5518947   0.2746501
+\end{verbatim}
+\bigskip 
+
+The \texttt{[} operator can be used in sequence to allow 
+partial groupings as in the example below:
+\begin{verbatim}
+# simple use would be:
+groups <- quarks[,
+                 .N,
+                 keyby = c("flavour", "lab")
+                 ]
+                 
+R: head(groups)
+
+   flavour lab N
+1:  bottom   B 3
+2:  bottom   C 3
+3:  bottom   D 2
+4:  bottom   E 4
+5:  bottom   F 6
+6:  charme   A 1
+
+# we can normalise each count N to
+# the overall number of counts per 
+# flavour, piping the [
+groups <- quarks[,
+                 .N,
+                 keyby = c("flavour", "lab")
+                 ][,
+                   c("flavour_sum", "lab_freq") := 
+                       list(sum(N), N/sum(N)),
+                   by = "flavour"
+                   ]
+
+R: head(groups)
+
+   flavour lab N flavour_sum   lab_freq
+1:  bottom   B 3          18 0.16666667
+2:  bottom   C 3          18 0.16666667
+3:  bottom   D 2          18 0.11111111
+4:  bottom   E 4          18 0.22222222
+5:  bottom   F 6          18 0.33333333
+6:  charme   A 1          17 0.05882353                  
+\end{verbatim}
+
+
+
+\section{Random and unique rows}
+In order to show the power of random and distinct
+sampling we will make use of the \texttt{quarks} data table as 
+defined in (\ref{quark}). Random samples are easily obtained:
+\begin{verbatim}
+R: set.seed(1)
+R: quarks[sample(.N,10)]
+
+    lab flavour  S_z
+ 1:   A strange  1/2
+ 2:   E strange -1/2
+ 3:   B strange  1/2
+ 4:   B  bottom  1/2
+ 5:   E strange  1/2
+ 6:   B    down  1/2
+ 7:   C      up  1/2
+ 8:   B  bottom  1/2
+ 9:   D      up  1/2
+10:   F    down -1/2
+\end{verbatim}
+The function \texttt{unique(dt, by = c(first, second))}
+allows to fetch the \emph{first occurrence} of unique
+row according to the variables ``first, second''.
+\begin{verbatim}
+R: unique(quarks, by = c("flavour"))
+
+   lab flavour S_z
+1:   A strange 1/2
+2:   B  bottom 1/2
+3:   B    down 1/2
+4:   C      up 1/2
+
+R: unique(quarks, by = c("flavour", "S_z"))
+
+   lab flavour  S_z
+1:   A strange  1/2
+2:   E strange -1/2
+3:   B  bottom  1/2
+4:   B    down  1/2
+5:   C      up  1/2
+6:   F    down -1/2
+\end{verbatim}
+
+\section{Grouping by}
+Variables can by grouped by according to
+the following grammar:
+\begin{verbatim}
+R: iris[,.(width = mean(Petal.Width), dev = sd(Petal.Width), .N), 
+        by = Species]
+        
+      Species  mean       dev  N
+1:     setosa 0.246 0.1053856 50
+2: versicolor 1.326 0.1977527 50
+3:  virginica 2.026 0.2746501 50
+
+
+R: quarks[,.(observations = .N), 
+	keyby = c("lab", "flavour")]
+
+    lab flavour observations
+ 1:   A  charme            1
+ 2:   A    down            3
+ 3:   A strange            5
+ 4:   A     top            2
+ 5:   B  bottom            3
+ 6:   B  charme            3
+\end{verbatim}
+
+\section{Joining data tables}
+\subsubsection*{Inner joins}
+Given two data tables having at least one common
+variable, the syntax
+\texttt{merge(first, second, by = c(`var1', `var2'))}
+performs inner join based on the variables ``var1, var2''.
+In the following example different laboratories
+perform measures of the spin projections of 
+different quarks. We want to find what each lab
+has measured when the same quark has appeared:
+\begin{verbatim}
+set.seed(10)
+first <- quarks[sample(.N, 10)]
+
+set.seed(20)
+second <- quarks[sample(.N, 10)]
+
+       first        |      second
+--------------------------------------
+   lab flavour  S_z | lab flavour  S_z
+1:   D  bottom  1/2 |   C    down  1/2
+2:   E  charme -1/2 |   F strange  1/2
+3:   C strange -1/2 |   F strange -1/2
+4:   C strange  1/2 |   A     top  1/2
+5:   D strange -1/2 |   D      up -1/2
+6:   ............   |  ..............
+
+R: merge(first, second, by = c("lab", "flavour"))
+
+   lab flavour S_z.x S_z.y
+1:   B strange   1/2  -1/2
+2:   C strange  -1/2   1/2
+3:   C strange   1/2   1/2
+4:   C strange   1/2   1/2
+5:   D  bottom   1/2   1/2
+6:   F  bottom   1/2   1/2
+\end{verbatim}
+The above can equivalently obtained with the  
+syntax \texttt{first[second, nomatch=0]} once we set the 
+variables we want to join on as keys. In fact
+\begin{verbatim}
+R: setkey(first, lab, flavour)
+R: setkey(second, lab, flavour)
+R: first[second, nomatch = 0]
+
+   lab flavour  S_z i.S_z
+1:   B strange  1/2  -1/2
+2:   C strange -1/2   1/2
+3:   C strange  1/2   1/2
+4:   C strange  1/2   1/2
+5:   D  bottom  1/2   1/2
+6:   F  bottom  1/2   1/2
+\end{verbatim}
+gives the same results, as also \texttt{second[first, nomatch=0]}.
+The condition \texttt{nomatch=0} ensure the inner join as 
+all the non-matching rows get discarded.
+
+\subsubsection*{Left joins}
+The two equivalent give the same results:
+\begin{verbatim}
+# notice all.x = TRUE
+R: merge(first, second, by = c("lab", "flavour"), 
+         all.x = TRUE)[order(flavour)]
+                        
+# notice nomatch = 0 has been taken off
+R: second[first]   
+
+    lab flavour  S_z i.S_z
+ 1:   D  bottom  1/2   1/2
+ 2:   F  bottom  1/2   1/2
+ 3:   B  charme   NA   1/2
+ 4:   C  charme   NA  -1/2
+ 5:   E  charme   NA  -1/2
+ 6:   B strange -1/2   1/2
+ 7:   C strange  1/2  -1/2
+ 8:   C strange  1/2   1/2
+ 9:   C strange  1/2   1/2
+10:   D strange   NA  -1/2
+\end{verbatim}
+The advantage of the latter is that ordering is 
+automatically performed on keys.
+
+\subsubsection*{Full joins}
+Full joins are given by
+\texttt{merge(first, second, by = c("flavour", "S\_z"), 
+all = TRUE)}
+
+\subsubsection*{Cartesian products}
+In order to perform cartesian products 
+we refer to the non-in-built function 
+shown in (\ref{sec: functions}) 
+\texttt{cross.join(first, second)}.
+
+

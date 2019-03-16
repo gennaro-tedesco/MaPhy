@@ -1,0 +1,49 @@
+%************************************************
+\chapter{Introduction}\label{sec: pre}
+%************************************************
+\noindent In the following a quick guide to
+common features of some \texttt{R} packages
+is shown. It is by no means intended to be a guide
+to the language, rather an introductory
+primer to some libraries useful in data 
+science for the ones who are already 
+familiar with the language. 
+
+As best practice, the reader is always
+addressed to the official documentation; 
+moreover, given any \texttt{R} function, the 
+line \texttt{?<function>} prompts the corresponding
+definitions and in-built help.
+\bigskip
+
+A full list of functions according to the package 
+they are defined in is available here.\footnote{ 
+\url{http://www.rdocumentation.org/}}
+
+\bigskip 
+
+Unless specified otherwise, minimal working examples
+are shown by making use of the sample datasets provided
+by \texttt{R}, in particular we will mainly refer to
+\texttt{data(iris)}, \texttt{data(mtcars)} and \texttt{data(morley)}. 
+We will henceforth refer to a generic data frame as to \texttt{df}.
+Another set of data we will make use of is the following
+quark\label{quark} data set: 
+\begin{verbatim}
+set.seed(1)
+lab      <- sample (LETTERS[1:6], 100, replace = TRUE) 
+flavour  <- sample(c("up", "down", "charme", "strange", 
+		"top", "bottom"), 100, replace = TRUE)
+S_z      <- sample(c("1/2", "-1/2"), 100, replace = TRUE)
+quarks   <- data.table(lab, flavour, S_z)
+
+R: head(quarks, 5)
+
+   lab flavour  S_z
+1:   B strange  1/2
+2:   C  charme  1/2
+3:   D    down -1/2
+4:   F  bottom  1/2
+5:   B strange  1/2
+\end{verbatim}
+

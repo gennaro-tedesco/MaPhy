@@ -1,0 +1,164 @@
+%************************************************
+\chapter{Vectorised operations on data frames}\label{sec: apply}
+%************************************************
+Given a data frame, the functions of the family
+\texttt{apply} allow to perform vectorised operations
+on rows and columns thereof, without having the manually
+access each entry to loop through.
+
+\section{apply}
+The general wrapper for such operations is the
+\texttt{apply} function, where rows and columns can 
+be accessed specifying the labels $(1,2,\ldots)$ (and higher 
+if any other multi-dimensional object is contained 
+therein). It returns a vector (or a list) of 
+values obtained by applying a function to the 
+rows (columns, respectively) of a data frame, coerced
+to matrix first. The general syntax is 
+\texttt{apply(df, margin, FUN = <function> )}, with \texttt{margin} being
+$1,2,\ldots$ and \texttt{<function>} being any function.
+\begin{verbatim}
+R: cars <- head(mtcars[,1:7],4)
+R: cars
+                   mpg cyl disp  hp drat    wt  qsec
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44
+
+# choose 1 for rows
+R: apply(cars, 1, mean)
+
+Mazda RX4  Mazda RX4 Wag     Datsun 710 Hornet 4 Drive 
+45.71143       45.82786       36.08286       60.16214 
+      
+# choose 2 for columns
+R: apply(cars, 2, mean)  
+
+    mpg      cyl     disp       hp     drat       wt     qsec 
+21.5500   5.5000 171.5000 105.7500   3.6825   2.7575  17.8825
+\end{verbatim}
+In the simple cases of the function being the sum or the mean,
+specific operators exist as \texttt{colSums} and \texttt{colMeans},
+and equivalently for rows:
+\begin{verbatim}
+R: colSums(cars)
+
+   mpg    cyl   disp     hp   drat     wt   qsec 
+ 86.20  22.00 686.00 423.00  14.73  11.03  71.53
+ 
+R: rowMeans(cars)
+
+Mazda RX4  Mazda RX4 Wag     Datsun 710 Hornet 4 Drive 
+45.71143       45.82786       36.08286       60.16214 
+\end{verbatim}
+
+\section{lapply and sapply}
+\texttt{lapply} applies a function to each element of a list
+and returns a list back. Equivalently, \texttt{sapply} does
+the same job but returns a vector back instead. As a data 
+frame can be seen as a list of columns, one can have
+\begin{verbatim}
+R: head(quarks)
+
+   lab flavour  S_z
+1:   B strange  1/2
+2:   C  charme  1/2
+3:   D    down -1/2
+4:   F  bottom  1/2
+5:   B strange  1/2
+6:   F    down -1/2
+
+R: lapply(quarks, mode)
+$lab
+[1] "C"
+
+$flavour
+[1] "strange"
+
+$S_z
+[1] "1/2"
+
+R: sapply(quarks, mode)
+
+lab   flavour       S_z 
+"C" "strange"     "1/2"
+\end{verbatim}
+
+\section{Vectorised assignments}
+Vectorised assignments in \texttt{R} commute with 
+functions, namely the operator \texttt{c} is such
+that \texttt{c(f) = f(c)}.
+\begin{verbatim}
+f <- function(x) sin(x) - cos(2*x)
+
+set.seed(1234)
+x <- f(c(rnorm(5)))
+
+set.seed(1234)
+y <- c(f(rnorm(5)))
+
+x == y
+
+[1] TRUE TRUE TRUE TRUE TRUE
+\end{verbatim}
+Likewise, \texttt{ifelse} evaluates a given 
+condition on each element of a vector, thus 
+replacing an entire loop: the two examples 
+below are indeed equivalent, the latter sparing
+memory and being faster
+\begin{verbatim}
+set.seed(1234)
+x <- rnorm(5)
+
+R: for(i in seq(1:length(x))){
+      if(x[i] < 0){
+        print("negative")
+      } else {
+        print("positive")
+      }
+    }
+
+[1] "negative"
+[1] "positive"
+[1] "positive"
+[1] "negative"
+[1] "positive"
+
+
+R: ifelse(x < 0, "negative", "positive")
+
+[1] "negative" "positive" "positive" "negative" "positive"
+\end{verbatim}
+The function \texttt{cumsum} returns the cumulative 
+sums of values elementwise, easily replacing a 
+loop through:
+\begin{verbatim}
+set.seed(1234)
+x <- rnorm(5)
+
+R: x
+[1] -1.2070657  0.2774292  1.0844412 -2.3456977  0.4291247
+
+R: cumsum(x)
+[1] -1.2070657 -0.9296365  0.1548047 -2.1908930 -1.7617683
+\end{verbatim}
+\enlargethispage{\baselineskip}
+As a more general result, given a vector of 
+values, the operator \texttt{Reduce}
+applies a function on pairs of values at 
+a time, defined as
+\begin{verbatim}
+Reduce(f, x) = ...f(f(f(x[1],x[2]),x[3]),...)
+
+set.seed(1234)
+x <- rnorm(5)
+R: x
+[1] -1.2070657  0.2774292  1.0844412 -2.3456977  0.4291247
+R: Reduce(max, x, accumulate = TRUE)
+[1] -1.2070657  0.2774292  1.0844412  1.0844412  1.0844412
+\end{verbatim}
+
+
+
+

@@ -1,0 +1,43 @@
+%************************************************
+\chapter{Writing and reading data}\label{sec: read_write}
+%************************************************
+Below is an example on how to write out and read 
+in data sets. 
+\begin{verbatim}
+set.seed(10)
+mtcars <- data.table(mtcars)
+cars   <- mtcars[sample(.N,5), sample(11,4), with = FALSE]
+
+write.table(cars, file = "my_file.csv", sep = "\t", 
+            quote = FALSE, append = FALSE, na = "NA", 
+            dec = ".", row.names = FALSE)
+
+read_cars <- read.table("my_file.csv", sep = "\t", quote = "",
+                        header = TRUE, dec = ".", fill = FALSE, 
+                        na.strings = c("NA", "-"), 
+                        stringsAsFactors = FALSE)
+                        
+R: cars                  | R: read_cars
+
+    disp carb gear drat  |    disp carb gear drat
+1: 440.0    4    3 3.23  |1: 440.0    4    3 3.23
+2: 167.6    4    4 3.92  |2: 167.6    4    4 3.92
+3: 275.8    3    3 3.07  |3: 275.8    3    3 3.07
+4: 120.1    1    3 3.70  |4: 120.1    1    3 3.70
+5: 108.0    1    4 3.85  |5: 108.0    1    4 3.85        
+\end{verbatim}
+The option \texttt{na.strings = c("NA", "-")} decides
+which lines must be interpreted as \texttt{NA}. 
+Likewise \texttt{fill = TRUE} allows to skip and 
+continue whenever inconsistencies in the data are
+present: on the other hand \texttt{fill = FALSE} 
+throws an error whenever so (and hence allows 
+control on the inconsistent data). To trim leading 
+and tailing space from unquoted strings use 
+\texttt{strip.white = TRUE}.
+\bigskip
+
+The \texttt{data.table} package makes use of 
+\texttt{fread} to read data file in, this being
+much faster (especially for large sets of data),
+while keeping the same syntax.

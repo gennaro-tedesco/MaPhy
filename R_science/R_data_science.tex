@@ -1,0 +1,94 @@
+
+
+\documentclass[a4paper,twoside,openright,titlepage,
+               headinclude,,footinclude,BCOR5mm,
+               numbers=noenddot,cleardoublepage=empty,
+               tablecaptionabove]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{indentfirst}
+\usepackage[style=philosophy-modern,hyperref]{biblatex}
+\usepackage{chngpage}
+\usepackage{graphicx}
+\usepackage{calc}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{lipsum}
+\usepackage{shapepar}
+\usepackage{pifont}
+\usepackage[eulerchapternumbers,subfig,beramono,eulermath,pdfspacing,listings]{classicthesis}
+\usepackage{arsclassica}
+\usepackage{microtype}
+\usepackage{classicthesis}
+\usepackage{comment}
+\usepackage{makeidx}
+\usepackage[tight,english]{minitoc}
+\usepackage{mathtools,amsthm,amsfonts,amssymb}
+\usepackage{bm}
+\usepackage{braket}
+\usepackage[font=footnotesize, labelfont={sf,bf}]{caption}
+\usepackage{booktabs}
+\usepackage{enumitem}
+    \renewcommand{\labelenumi}{(\roman{enumi})}
+\usepackage{xspace}
+\usepackage{comment}
+
+\input{arsclassica-settings}
+
+\makeindex
+
+% -------- new commands defined below -----------
+\newcommand{\df}{\texttt{data.frame}\xspace}
+
+% equations labelled within the sections
+\numberwithin{equation}{section}
+
+%newtheoremstyle
+\newtheoremstyle{classicthm}
+{15pt}
+{15pt}
+{\rmfamily}
+{}
+{\itshape}
+{:}
+{.5em}
+{}
+
+
+\begin{document}
+\pagestyle{plain}
+\input{FrontBackMatter/Titlepage}
+\pagestyle{scrheadings}
+\dominitoc
+
+%********************************************************************
+% Mainmatter
+%*******************************************************
+\include{chapters/Preliminaries}
+\include{chapters/apply}
+\include{chapters/data_table}
+\include{chapters/dplyr}
+\include{chapters/ggplot2}
+\include{chapters/reshape}
+\include{chapters/clusters}
+\include{chapters/tests}
+\include{chapters/date_time}
+\include{chapters/read_write}
+\include{chapters/text}
+\include{chapters/functions}
+%*******************************************************
+% Backmatter
+%*******************************************************
+\clearpage
+\input{FrontBackMatter/Bibliography}
+
+% this is for the index -----------------------------------------------------
+\manualmark
+{\spacedlowsmallcaps{\indexname}}
+\pagestyle{scrheadings}
+\addcontentsline{toc}{chapter}{\tocEntry{\indexname}}
+\printindex
+\end{document}
